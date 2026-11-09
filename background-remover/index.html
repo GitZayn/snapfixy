@@ -243,7 +243,6 @@ async function process(file) {
     const prepared = await prepareImage(file);
     S.showStatus(statusEl, 'Removing the background on your device…');
     const blob = await removeBackground(prepared, {
-      publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal-data@1.5.5/dist/',
       model: 'isnet_quint8',
       output: { format: 'image/png', quality: 1, type: 'foreground' },
       progress: function (key, current, total) {
