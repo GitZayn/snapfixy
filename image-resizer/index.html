@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Resizer — Resize Images Online Free to Exact Pixels, No Upload | SnapFixy</title>
+<meta name="description" content="Resize an image online to exact pixel dimensions for social media, websites and documents. Keep proportions with one tick — free, in your browser, no uploads.">
+<link rel="canonical" href="https://snapfixy.com/image-resizer/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SnapFixy">
+<meta property="og:title" content="Image Resizer — Exact Pixel Sizes, In Your Browser">
+<meta property="og:description" content="Resize images to the dimensions you need — free, private, and without installing any software.">
+<meta property="og:url" content="https://snapfixy.com/image-resizer/">
+<meta property="og:image" content="https://snapfixy.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"SnapFixy Image Resizer","url":"https://snapfixy.com/image-resizer/","applicationCategory":"MultimediaApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="/" aria-label="SnapFixy home">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1f5eff"/><path d="M38.6 10 L20 36.2 h11.4 L26.8 54 L46 26.4 H34.2 Z" fill="#fff"/></svg>
+      Snap<em>Fixy</em>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#131a26" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="/background-remover/">Background Remover</a>
+      <a href="/image-compressor/">Image Compressor</a>
+      <a href="/pdf-merge/">PDF Merge</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="container">
+      <h1>Image resizer</h1>
+      <p class="lede">Resize an image to the exact pixel size a platform, form or layout demands — with proportions locked if you want them.</p>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <div class="container tool-shell">
+      <div class="dropzone" id="res-dropzone" role="button" tabindex="0" aria-label="Choose an image to resize">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5M7.5 9.5L12 5l4.5 4.5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        <p><strong>Drop an image here</strong> or click to browse</p>
+        <p>Then type the new width or height — the other side follows automatically while proportions are locked.</p>
+      </div>
+      <input type="file" id="res-input" accept="image/*" hidden>
+
+      <div class="controls" id="res-controls" hidden>
+        <div class="field">
+          <label for="res-width">Width (px)</label>
+          <input type="number" id="res-width" min="1" max="20000">
+        </div>
+        <div class="field">
+          <label for="res-height">Height (px)</label>
+          <input type="number" id="res-height" min="1" max="20000">
+        </div>
+        <div class="field">
+          <label for="res-lock">Proportions</label>
+          <select id="res-lock">
+            <option value="lock" selected>Keep proportions</option>
+            <option value="free">Free (may stretch)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="res-preset">Quick presets</label>
+          <select id="res-preset">
+            <option value="">Choose a preset…</option>
+            <option value="1920">Full HD width — 1920px</option>
+            <option value="1280">HD width — 1280px</option>
+            <option value="1080">Social square-ish — 1080px wide</option>
+            <option value="800">Web content — 800px wide</option>
+            <option value="400">Thumbnail — 400px wide</option>
+          </select>
+        </div>
+        <button class="btn" id="res-go" type="button">Resize image</button>
+      </div>
+
+      <div class="status" id="res-status" role="status"></div>
+
+      <div class="preview-grid" id="res-previews" hidden>
+        <div class="preview-box">
+          <h4>Original</h4>
+          <div class="imgwrap"><img id="res-before" alt="Your original image"></div>
+          <p class="meta-line" id="res-before-meta"></p>
+        </div>
+        <div class="preview-box">
+          <h4>Resized</h4>
+          <div class="imgwrap checker"><img id="res-after" alt="Your resized image"></div>
+          <p class="meta-line" id="res-after-meta"></p>
+        </div>
+      </div>
+
+      <div class="controls" id="res-actions" hidden>
+        <button class="btn" id="res-download" type="button">Download resized image</button>
+        <button class="btn secondary" id="res-again" type="button">Resize another</button>
+      </div>
+
+      <div class="privacy-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 3l7 3v5c0 5-3.2 8.2-7 10-3.8-1.8-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span><strong>Private by design:</strong> resizing is done by your browser on your device. Your image is never uploaded anywhere.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>How resizing works — and when to use it</h2>
+      <p>An image's dimensions are its width and height in pixels. A modern phone photo might be 4032 × 3024 pixels — wonderful for printing, but far larger than a website, social platform or document needs. Resizing redraws the image at the dimensions you choose, producing a file that fits its destination exactly and usually weighs far less, too.</p>
+      <p>This tool keeps the aspect ratio (the relationship between width and height) locked by default: type a new width and the height adjusts to match, so nothing is squashed or stretched. Unlock it only if a destination demands an exact box and you accept some distortion — for example, forcing a banner to precise dimensions.</p>
+      <h3>Common sizes people resize to</h3>
+      <ul>
+        <li><strong>Social media:</strong> 1080px wide suits most feeds; profile pictures are usually displayed small, so 400–800px is plenty.</li>
+        <li><strong>Websites:</strong> content images at 800–1280px wide balance sharpness and loading speed.</li>
+        <li><strong>Email and documents:</strong> 600–800px wide keeps attachments light and pages tidy.</li>
+        <li><strong>Forms and portals:</strong> many ask for a maximum dimension or file size — resize first, then <a href="/image-compressor/">compress</a> if the file is still too heavy.</li>
+      </ul>
+      <p>A word of honesty: enlarging an image cannot invent detail that was never captured. You can make a small image bigger in pixels, but it will look soft. For best results, start from the largest original you have and shrink down. Our walkthrough on <a href="/blog/resize-image-online-without-software/">how to resize an image online without software</a> covers the process step by step.</p>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="container">
+      <h2>Image resizer — frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Will resizing reduce the file size too?</summary>
+          <p>Almost always, yes — fewer pixels means less data. If the file is still too large for your purpose afterwards, run it through the <a href="/image-compressor/">image compressor</a>.</p>
+        </details>
+        <details>
+          <summary>What format does the resized image come in?</summary>
+          <p>The same format as your original where the browser supports it (PNG stays PNG, JPG stays JPG). Transparent images keep their transparency when saved as PNG.</p>
+        </details>
+        <details>
+          <summary>Why does my enlarged image look blurry?</summary>
+          <p>Enlarging spreads the existing pixels over a bigger area; no tool can create detail that the original photo never captured. Start from the biggest original available.</p>
+        </details>
+        <details>
+          <summary>Is anything uploaded?</summary>
+          <p>No. Like every SnapFixy tool, resizing happens entirely in your browser.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <h4>SnapFixy</h4>
+      <p>Free online image and PDF tools that run in your browser. Your files never leave your device.</p>
+    </div>
+    <nav aria-label="Image tools">
+      <h4>Image tools</h4>
+      <ul>
+        <li><a href="/background-remover/">Background Remover</a></li>
+        <li><a href="/image-compressor/">Image Compressor</a></li>
+        <li><a href="/image-converter/">Image Converter</a></li>
+        <li><a href="/image-resizer/">Image Resizer</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="PDF tools">
+      <h4>PDF tools</h4>
+      <ul>
+        <li><a href="/pdf-merge/">PDF Merge</a></li>
+        <li><a href="/pdf-split/">PDF Split</a></li>
+        <li><a href="/pdf-compressor/">PDF Compressor</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Company">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Use</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year">2026</span> SnapFixy. All rights reserved.</span>
+    <span>Made for the open web — no uploads, no sign-ups.</span>
+  </div>
+</footer>
+<script src="/assets/js/main.js"></script>
+<script>
+(function () {
+  var S = window.SnapFixy;
+  var zone = document.getElementById('res-dropzone');
+  var input = document.getElementById('res-input');
+  var controls = document.getElementById('res-controls');
+  var wEl = document.getElementById('res-width');
+  var hEl = document.getElementById('res-height');
+  var lockSel = document.getElementById('res-lock');
+  var presetSel = document.getElementById('res-preset');
+  var statusEl = document.getElementById('res-status');
+  var previews = document.getElementById('res-previews');
+  var actions = document.getElementById('res-actions');
+  var currentFile = null, currentImg = null, ratio = 1, resultBlob = null, resultName = '';
+
+  function syncFromWidth() {
+    if (lockSel.value === 'lock' && wEl.value) hEl.value = Math.max(1, Math.round(parseInt(wEl.value, 10) / ratio));
+  }
+  function syncFromHeight() {
+    if (lockSel.value === 'lock' && hEl.value) wEl.value = Math.max(1, Math.round(parseInt(hEl.value, 10) * ratio));
+  }
+  wEl.addEventListener('input', syncFromWidth);
+  hEl.addEventListener('input', syncFromHeight);
+  presetSel.addEventListener('change', function () {
+    if (presetSel.value) { wEl.value = presetSel.value; syncFromWidth(); }
+  });
+
+  S.wireDropzone(zone, input, function (files) {
+    var file = files[0];
+    if (!file || !file.type.startsWith('image/')) { S.showStatus(statusEl, 'Please choose an image file.', true); return; }
+    currentFile = file;
+    S.hideStatus(statusEl); previews.hidden = true; actions.hidden = true;
+    S.loadImage(file).then(function (loaded) {
+      currentImg = loaded.img;
+      ratio = loaded.img.naturalWidth / loaded.img.naturalHeight;
+      wEl.value = loaded.img.naturalWidth;
+      hEl.value = loaded.img.naturalHeight;
+      controls.hidden = false;
+      S.showStatus(statusEl, 'Original size: ' + loaded.img.naturalWidth + ' × ' + loaded.img.naturalHeight + ' px (' + S.formatBytes(file.size) + '). Set the new size and resize.');
+    }).catch(function (err) { S.showStatus(statusEl, err.message, true); });
+  });
+
+  document.getElementById('res-go').addEventListener('click', function () {
+    if (!currentImg || !currentFile) return;
+    var w = parseInt(wEl.value, 10), h = parseInt(hEl.value, 10);
+    if (!w || !h || w < 1 || h < 1) { S.showStatus(statusEl, 'Please enter a valid width and height in pixels.', true); return; }
+    var canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    var ctx = canvas.getContext('2d');
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    var type = currentFile.type;
+    if (type === 'image/jpeg') { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, w, h); }
+    ctx.drawImage(currentImg, 0, 0, w, h);
+    var outType = (type === 'image/png' || type === 'image/webp' || type === 'image/jpeg') ? type : 'image/png';
+    canvas.toBlob(function (blob) {
+      if (!blob) { S.showStatus(statusEl, 'Resizing failed in this browser. Please try another image.', true); return; }
+      resultBlob = blob;
+      var ext = outType === 'image/png' ? 'png' : (outType === 'image/webp' ? 'webp' : 'jpg');
+      resultName = S.baseName(currentFile.name) + '-' + w + 'x' + h + '.' + ext;
+      document.getElementById('res-before').src = URL.createObjectURL(currentFile);
+      document.getElementById('res-after').src = URL.createObjectURL(blob);
+      document.getElementById('res-before-meta').textContent = currentImg.naturalWidth + ' × ' + currentImg.naturalHeight + ' px — ' + S.formatBytes(currentFile.size);
+      document.getElementById('res-after-meta').textContent = w + ' × ' + h + ' px — ' + S.formatBytes(blob.size);
+      previews.hidden = false; actions.hidden = false;
+      S.showStatus(statusEl, 'Resized to ' + w + ' × ' + h + ' px. Download it below.');
+    }, outType, 0.92);
+  });
+
+  document.getElementById('res-download').addEventListener('click', function () { if (resultBlob) S.downloadBlob(resultBlob, resultName); });
+  document.getElementById('res-again').addEventListener('click', function () {
+    controls.hidden = true; previews.hidden = true; actions.hidden = true;
+    currentFile = null; currentImg = null; S.hideStatus(statusEl);
+    zone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+})();
+</script>
+</body>
+</html>

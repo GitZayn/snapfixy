@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Background Remover — Remove Image Backgrounds Online, No Upload | SnapFixy</title>
+<meta name="description" content="Remove the background from any image free, in your browser. AI-powered cut-outs with a transparent PNG download — and your photo is never uploaded to a server.">
+<link rel="canonical" href="https://snapfixy.com/background-remover/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SnapFixy">
+<meta property="og:title" content="Free Background Remover — No Upload Needed">
+<meta property="og:description" content="Cut out image backgrounds with AI, entirely in your browser. Transparent PNG download, no sign-up, no watermark.">
+<meta property="og:url" content="https://snapfixy.com/background-remover/">
+<meta property="og:image" content="https://snapfixy.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"SnapFixy Background Remover","url":"https://snapfixy.com/background-remover/","applicationCategory":"MultimediaApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="/" aria-label="SnapFixy home">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1f5eff"/><path d="M38.6 10 L20 36.2 h11.4 L26.8 54 L46 26.4 H34.2 Z" fill="#fff"/></svg>
+      Snap<em>Fixy</em>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#131a26" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="/background-remover/">Background Remover</a>
+      <a href="/image-compressor/">Image Compressor</a>
+      <a href="/pdf-merge/">PDF Merge</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="container">
+      <h1>Free background remover</h1>
+      <p class="lede">Cut the background out of a photo and download a transparent PNG. The AI runs on your own device — your image is never uploaded.</p>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <div class="container tool-shell">
+      <div class="dropzone" id="bg-dropzone" role="button" tabindex="0" aria-label="Choose an image to remove the background from">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5M7.5 9.5L12 5l4.5 4.5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        <p><strong>Drop an image here</strong> or click to browse</p>
+        <p>JPG or PNG works best. Portraits, products and logos give the cleanest cut-outs.</p>
+      </div>
+      <input type="file" id="bg-input" accept="image/*" hidden>
+
+      <div class="status" id="bg-status" role="status"></div>
+      <div class="progress" id="bg-progress"><i></i></div>
+
+      <div class="preview-grid" id="bg-previews" hidden>
+        <div class="preview-box">
+          <h4>Original</h4>
+          <div class="imgwrap"><img id="bg-before" alt="Your original image"></div>
+          <p class="meta-line" id="bg-before-meta"></p>
+        </div>
+        <div class="preview-box">
+          <h4>Background removed</h4>
+          <div class="imgwrap checker"><img id="bg-after" alt="Your image with the background removed"></div>
+          <p class="meta-line" id="bg-after-meta"></p>
+        </div>
+      </div>
+
+      <div class="controls" id="bg-actions" hidden>
+        <button class="btn" id="bg-download" type="button">Download transparent PNG</button>
+        <button class="btn secondary" id="bg-again" type="button">Remove another background</button>
+      </div>
+
+      <div class="privacy-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 3l7 3v5c0 5-3.2 8.2-7 10-3.8-1.8-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span><strong>Private by design:</strong> the AI model runs in your browser on your device. Your photo is never uploaded to SnapFixy or anywhere else. The first time you use the tool, your browser downloads the AI model itself (about 40&nbsp;MB) — that is software, not your data, and it is cached for next time.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>How the background remover works</h2>
+      <p>When you choose a photo, the tool loads a compact AI segmentation model — the same kind of technology professional photo editors use — directly into your browser. The model studies your image pixel by pixel, works out which parts belong to the main subject (a person, a product, a pet, a car) and which parts are background, then produces a cut-out with a transparent background as a PNG file.</p>
+      <p>Because everything happens on your device, there is no upload queue and no waiting for a server. The trade-off is that the very first run takes a little longer while the model downloads; after that it is cached, and repeat cut-outs are quick. Busy scenes, wispy hair against a similar-coloured backdrop, and very low-resolution images can still challenge any AI, but for the everyday jobs below the results are excellent.</p>
+      <h3>What is it useful for?</h3>
+      <ul>
+        <li><strong>Online selling:</strong> put products on a clean white or branded background for marketplaces and your own shop.</li>
+        <li><strong>Profile pictures and ID-style photos:</strong> tidy up a headshot by removing a cluttered room behind you.</li>
+        <li><strong>Design work:</strong> lift a subject out of a photo to drop into presentations, posters, thumbnails and social posts.</li>
+        <li><strong>Logos and signatures:</strong> turn a photo of a logo or signature on paper into a transparent overlay.</li>
+      </ul>
+      <h3>Tips for the cleanest cut-out</h3>
+      <ul>
+        <li>Use the sharpest, highest-resolution version of the image you have.</li>
+        <li>Contrast helps: a subject that stands out clearly from its background cuts out more accurately.</li>
+        <li>If the edges are not perfect, our <a href="/image-resizer/">image resizer</a> and <a href="/image-compressor/">compressor</a> can help you prepare the final file for wherever it is going.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="container">
+      <h2>Background remover — frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Is the background remover really free?</summary>
+          <p>Yes — free, with no watermark and no sign-up. Download your transparent PNG as often as you like.</p>
+        </details>
+        <details>
+          <summary>Is my photo uploaded to a server?</summary>
+          <p>No. The AI model is downloaded to your browser and runs on your device. Your photo itself never leaves your computer or phone. You can confirm this in our <a href="/privacy-policy/">Privacy Policy</a>.</p>
+        </details>
+        <details>
+          <summary>Why did the first image take longer?</summary>
+          <p>On first use your browser downloads the AI model (roughly 40&nbsp;MB). It is cached afterwards, so later images process much faster. The download is a one-off cost of keeping your photos private.</p>
+        </details>
+        <details>
+          <summary>What format do I get back?</summary>
+          <p>A PNG with a transparent background, at the same dimensions as your original image. PNG is the format that supports transparency, which is exactly what a cut-out needs.</p>
+        </details>
+        <details>
+          <summary>The edges of my cut-out look rough. What can I do?</summary>
+          <p>Try a sharper original photo with better lighting and clearer contrast between subject and background. AI cut-outs struggle most with fine hair against busy backgrounds and with very small images.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <h4>SnapFixy</h4>
+      <p>Free online image and PDF tools that run in your browser. Your files never leave your device.</p>
+    </div>
+    <nav aria-label="Image tools">
+      <h4>Image tools</h4>
+      <ul>
+        <li><a href="/background-remover/">Background Remover</a></li>
+        <li><a href="/image-compressor/">Image Compressor</a></li>
+        <li><a href="/image-converter/">Image Converter</a></li>
+        <li><a href="/image-resizer/">Image Resizer</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="PDF tools">
+      <h4>PDF tools</h4>
+      <ul>
+        <li><a href="/pdf-merge/">PDF Merge</a></li>
+        <li><a href="/pdf-split/">PDF Split</a></li>
+        <li><a href="/pdf-compressor/">PDF Compressor</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Company">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Use</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year">2026</span> SnapFixy. All rights reserved.</span>
+    <span>Made for the open web — no uploads, no sign-ups.</span>
+  </div>
+</footer>
+<script src="/assets/js/main.js"></script>
+<script type="module">
+const S = window.SnapFixy;
+const zone = document.getElementById('bg-dropzone');
+const input = document.getElementById('bg-input');
+const statusEl = document.getElementById('bg-status');
+const progress = document.getElementById('bg-progress');
+const bar = progress.querySelector('i');
+const previews = document.getElementById('bg-previews');
+const actions = document.getElementById('bg-actions');
+const beforeImg = document.getElementById('bg-before');
+const afterImg = document.getElementById('bg-after');
+let resultBlob = null;
+let resultName = 'snapfixy-no-background.png';
+let removeBackgroundFn = null;
+
+async function getRemover() {
+  if (!removeBackgroundFn) {
+    const mod = await import('https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.5/+esm');
+    removeBackgroundFn = mod.removeBackground || mod.default;
+  }
+  return removeBackgroundFn;
+}
+
+async function process(file) {
+  if (!file || !file.type.startsWith('image/')) {
+    S.showStatus(statusEl, 'Please choose an image file (JPG or PNG works best).', true);
+    return;
+  }
+  previews.hidden = true;
+  actions.hidden = true;
+  resultBlob = null;
+  S.showStatus(statusEl, 'Loading the AI model in your browser — the first run downloads about 40 MB and can take a little while…');
+  progress.classList.add('show');
+  bar.style.width = '5%';
+  try {
+    const removeBackground = await getRemover();
+    const blob = await removeBackground(file, {
+      output: { format: 'image/png', quality: 1, type: 'foreground' },
+      progress: function (key, current, total) {
+        if (total > 0) {
+          const pct = Math.min(98, Math.round((current / total) * 100));
+          bar.style.width = pct + '%';
+          if (pct > 12) S.showStatus(statusEl, 'Removing the background on your device… ' + pct + '%');
+        }
+      }
+    });
+    bar.style.width = '100%';
+    resultBlob = blob;
+    resultName = S.baseName(file.name) + '-no-background.png';
+    beforeImg.src = URL.createObjectURL(file);
+    afterImg.src = URL.createObjectURL(blob);
+    document.getElementById('bg-before-meta').textContent = file.name + ' — ' + S.formatBytes(file.size);
+    document.getElementById('bg-after-meta').textContent = 'Transparent PNG — ' + S.formatBytes(blob.size);
+    previews.hidden = false;
+    actions.hidden = false;
+    S.showStatus(statusEl, 'Done. Your cut-out is ready to download — and your photo never left this device.');
+  } catch (err) {
+    console.error(err);
+    S.showStatus(statusEl, 'Sorry — the background could not be removed. This tool needs a modern browser with enough free memory; try a desktop browser or a smaller image.', true);
+  } finally {
+    setTimeout(function () { progress.classList.remove('show'); bar.style.width = '0%'; }, 600);
+  }
+}
+
+S.wireDropzone(zone, input, function (files) { process(files[0]); });
+document.getElementById('bg-download').addEventListener('click', function () {
+  if (resultBlob) S.downloadBlob(resultBlob, resultName);
+});
+document.getElementById('bg-again').addEventListener('click', function () {
+  previews.hidden = true;
+  actions.hidden = true;
+  S.hideStatus(statusEl);
+  zone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+</script>
+</body>
+</html>
