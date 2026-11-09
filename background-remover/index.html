@@ -80,7 +80,7 @@
 
       <div class="privacy-note">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 3l7 3v5c0 5-3.2 8.2-7 10-3.8-1.8-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
-        <span><strong>Private by design:</strong> the AI model runs in your browser on your device. Your photo is never uploaded to SnapFixy or anywhere else. The first time you use the tool, your browser downloads the AI model itself (about 40&nbsp;MB) — that is software, not your data, and it is cached for next time.</span>
+        <span><strong>Private by design:</strong> the AI model runs in your browser on your device. Your photo is never uploaded to SnapFixy or anywhere else. The first time you use the tool, your browser downloads the AI model itself (about 54 MB) — that is software, not your data, and it is cached for next time.</span>
       </div>
     </div>
   </section>
@@ -120,7 +120,7 @@
         </details>
         <details>
           <summary>Why did the first image take longer?</summary>
-          <p>On first use your browser downloads the AI model (roughly 40&nbsp;MB). It is cached afterwards, so later images process much faster. The download is a one-off cost of keeping your photos private.</p>
+          <p>On first use your browser downloads the AI model (about 54 MB in total). It is cached afterwards, so later images process much faster. The download is a one-off cost of keeping your photos private.</p>
         </details>
         <details>
           <summary>What format do I get back?</summary>
@@ -189,6 +189,9 @@ const afterImg = document.getElementById('bg-after');
 let resultBlob = null;
 let resultName = 'snapfixy-no-background.png';
 let removeBackgroundFn = null;
+let lastAdvance = 0;
+let lastPct = 0;
+let watchdog = null;
 
 async function getRemover() {
   if (!removeBackgroundFn) {
@@ -224,21 +227,30 @@ async function process(file) {
   previews.hidden = true;
   actions.hidden = true;
   resultBlob = null;
-  S.showStatus(statusEl, 'Loading the AI model in your browser — the first run downloads about 40 MB and can take a little while…');
+  S.showStatus(statusEl, 'Loading the AI model in your browser — the first run downloads about 54 MB in total and can take a little while…');
   progress.classList.add('show');
   bar.style.width = '5%';
+  lastAdvance = Date.now();
+  lastPct = 0;
+  watchdog = setInterval(function () {
+    if (Date.now() - lastAdvance > 40000 && lastPct < 98) {
+      S.showStatus(statusEl, 'Still working at ' + lastPct + '% — the one-off model download is about 54 MB, so on a slow connection this can take a few minutes. Keep this tab open and stay on Wi-Fi if you can.');
+    }
+  }, 5000);
   try {
     const removeBackground = await getRemover();
     S.showStatus(statusEl, 'Model ready — preparing your photo…');
     const prepared = await prepareImage(file);
     S.showStatus(statusEl, 'Removing the background on your device…');
     const blob = await removeBackground(prepared, {
+      publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal-data@1.5.5/dist/',
       model: 'isnet_quint8',
       output: { format: 'image/png', quality: 1, type: 'foreground' },
       progress: function (key, current, total) {
         if (total > 0) {
           const pct = Math.min(98, Math.round((current / total) * 100));
           bar.style.width = pct + '%';
+          if (pct !== lastPct) { lastPct = pct; lastAdvance = Date.now(); }
           if (pct > 12) {
             const phase = String(key).indexOf('fetch') === 0 ? 'Downloading the AI model (one-off, then it is cached)… ' : 'Removing the background on your device… ';
             S.showStatus(statusEl, phase + pct + '%');
@@ -261,6 +273,7 @@ async function process(file) {
     const detail = err && err.message ? String(err.message).slice(0, 140) : '';
     S.showStatus(statusEl, 'Sorry — the background could not be removed on this device. Try a smaller photo or a desktop browser.' + (detail ? ' (Detail: ' + detail + ')' : ''), true);
   } finally {
+    if (watchdog) { clearInterval(watchdog); watchdog = null; }
     setTimeout(function () { progress.classList.remove('show'); bar.style.width = '0%'; }, 600);
   }
 }
