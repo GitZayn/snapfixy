@@ -124,7 +124,7 @@
         </details>
         <details>
           <summary>What format do I get back?</summary>
-          <p>A PNG with a transparent background, at the same dimensions as your original image. PNG is the format that supports transparency, which is exactly what a cut-out needs.</p>
+          <p>A PNG with a transparent background. Very large photos are scaled to a maximum of 1,600 pixels on the longest side during processing, so phones and older laptops can run the AI without running out of memory. PNG is the format that supports transparency, which is exactly what a cut-out needs.</p>
         </details>
         <details>
           <summary>The edges of my cut-out look rough. What can I do?</summary>
@@ -198,6 +198,24 @@ async function getRemover() {
   return removeBackgroundFn;
 }
 
+const MAX_SIDE = 1600;
+async function prepareImage(file) {
+  let bmp = null;
+  try { bmp = await createImageBitmap(file); } catch (e) { bmp = null; }
+  if (!bmp) return file;
+  const longest = Math.max(bmp.width, bmp.height);
+  if (longest <= MAX_SIDE) { bmp.close && bmp.close(); return file; }
+  const scale = MAX_SIDE / longest;
+  const w = Math.round(bmp.width * scale), h = Math.round(bmp.height * scale);
+  const canvas = document.createElement('canvas');
+  canvas.width = w; canvas.height = h;
+  canvas.getContext('2d').drawImage(bmp, 0, 0, w, h);
+  bmp.close && bmp.close();
+  const isPng = file.type === 'image/png';
+  const blob = await new Promise(function (res) { canvas.toBlob(res, isPng ? 'image/png' : 'image/jpeg', 0.92); });
+  return blob || file;
+}
+
 async function process(file) {
   if (!file || !file.type.startsWith('image/')) {
     S.showStatus(statusEl, 'Please choose an image file (JPG or PNG works best).', true);
@@ -211,7 +229,10 @@ async function process(file) {
   bar.style.width = '5%';
   try {
     const removeBackground = await getRemover();
-    const blob = await removeBackground(file, {
+    S.showStatus(statusEl, 'Model ready — preparing your photo…');
+    const prepared = await prepareImage(file);
+    S.showStatus(statusEl, 'Removing the background on your device…');
+    const blob = await removeBackground(prepared, {
       output: { format: 'image/png', quality: 1, type: 'foreground' },
       progress: function (key, current, total) {
         if (total > 0) {
@@ -233,7 +254,8 @@ async function process(file) {
     S.showStatus(statusEl, 'Done. Your cut-out is ready to download — and your photo never left this device.');
   } catch (err) {
     console.error(err);
-    S.showStatus(statusEl, 'Sorry — the background could not be removed. This tool needs a modern browser with enough free memory; try a desktop browser or a smaller image.', true);
+    const detail = err && err.message ? String(err.message).slice(0, 140) : '';
+    S.showStatus(statusEl, 'Sorry — the background could not be removed on this device. Try a smaller photo or a desktop browser.' + (detail ? ' (Detail: ' + detail + ')' : ''), true);
   } finally {
     setTimeout(function () { progress.classList.remove('show'); bar.style.width = '0%'; }, 600);
   }
