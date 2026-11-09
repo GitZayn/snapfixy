@@ -124,7 +124,7 @@
         </details>
         <details>
           <summary>What format do I get back?</summary>
-          <p>A PNG with a transparent background. Very large photos are scaled to a maximum of 1,600 pixels on the longest side during processing, so phones and older laptops can run the AI without running out of memory. PNG is the format that supports transparency, which is exactly what a cut-out needs.</p>
+          <p>A PNG with a transparent background. Very large photos are scaled to a maximum of 1,024 pixels on the longest side during processing — the resolution the AI itself works at — so phones and older laptops can run it quickly without running out of memory. PNG is the format that supports transparency, which is exactly what a cut-out needs.</p>
         </details>
         <details>
           <summary>The edges of my cut-out look rough. What can I do?</summary>
@@ -198,7 +198,7 @@ async function getRemover() {
   return removeBackgroundFn;
 }
 
-const MAX_SIDE = 1600;
+const MAX_SIDE = 1024;
 async function prepareImage(file) {
   let bmp = null;
   try { bmp = await createImageBitmap(file); } catch (e) { bmp = null; }
@@ -233,12 +233,16 @@ async function process(file) {
     const prepared = await prepareImage(file);
     S.showStatus(statusEl, 'Removing the background on your device…');
     const blob = await removeBackground(prepared, {
+      model: 'isnet_quint8',
       output: { format: 'image/png', quality: 1, type: 'foreground' },
       progress: function (key, current, total) {
         if (total > 0) {
           const pct = Math.min(98, Math.round((current / total) * 100));
           bar.style.width = pct + '%';
-          if (pct > 12) S.showStatus(statusEl, 'Removing the background on your device… ' + pct + '%');
+          if (pct > 12) {
+            const phase = String(key).indexOf('fetch') === 0 ? 'Downloading the AI model (one-off, then it is cached)… ' : 'Removing the background on your device… ';
+            S.showStatus(statusEl, phase + pct + '%');
+          }
         }
       }
     });
