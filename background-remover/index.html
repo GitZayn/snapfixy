@@ -54,7 +54,14 @@
 
   <section class="tool-section">
     <div class="container tool-shell">
-      <div class="dropzone" id="bg-dropzone" role="button" tabindex="0" aria-label="Choose an image to remove the background from">
+      <div class="model-step" id="bg-model-step">
+        <h3>Step 1 — Download the AI model (one time only)</h3>
+        <p>This tool runs on an AI model inside your browser, so your photos are never uploaded. The model is about 54 MB — download it once here (Wi-Fi is best) and your browser saves it in its cache. After that, every cut-out starts straight away, with no download wait.</p>
+        <button class="btn" id="bg-preload" type="button">Download AI model (~54 MB)</button>
+        <p class="meta-line" id="bg-model-state">Not downloaded yet on this browser — Step 2 unlocks as soon as the model is saved.</p>
+      </div>
+      <h3 class="tool-step-label">Step 2 — Remove a background</h3>
+      <div class="dropzone locked" id="bg-dropzone" role="button" tabindex="0" aria-label="Choose an image to remove the background from">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5M7.5 9.5L12 5l4.5 4.5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
         <p><strong>Drop an image here</strong> or click to browse</p>
         <p>JPG or PNG works best. Portraits, products and logos give the cleanest cut-outs.</p>
@@ -232,17 +239,83 @@ const afterImg = document.getElementById('bg-after');
 let resultBlob = null;
 let resultName = 'snapfixy-no-background.png';
 let removeBackgroundFn = null;
+let libMod = null;
+let modelReady = false;
+const MODEL_FLAG = 'snapfixy-bg-model-v1';
+const preloadBtn = document.getElementById('bg-preload');
+const modelState = document.getElementById('bg-model-state');
 let lastAdvance = 0;
 let lastPct = 0;
 let watchdog = null;
 
+async function getLib() {
+  if (!libMod) {
+    libMod = await import('https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.5/+esm');
+  }
+  return libMod;
+}
+
 async function getRemover() {
   if (!removeBackgroundFn) {
-    const mod = await import('https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.5/+esm');
+    const mod = await getLib();
     removeBackgroundFn = mod.removeBackground || mod.default;
   }
   return removeBackgroundFn;
 }
+
+function markModelReady(note) {
+  modelReady = true;
+  try { localStorage.setItem(MODEL_FLAG, 'ready'); } catch (e) {}
+  if (navigator.storage && navigator.storage.persist) { navigator.storage.persist().catch(function () {}); }
+  preloadBtn.disabled = true;
+  preloadBtn.textContent = 'AI model saved ✓';
+  modelState.textContent = note || 'Saved in this browser’s cache — Step 2 below is unlocked and every cut-out now starts straight away.';
+  zone.classList.remove('locked');
+  zone.removeAttribute('aria-disabled');
+}
+
+try {
+  if (localStorage.getItem(MODEL_FLAG) === 'ready') {
+    markModelReady('Saved in this browser’s cache from last time — Step 2 below is unlocked and cut-outs start straight away.');
+  } else {
+    zone.setAttribute('aria-disabled', 'true');
+  }
+} catch (e) {
+  zone.setAttribute('aria-disabled', 'true');
+}
+
+preloadBtn.addEventListener('click', async function () {
+  preloadBtn.disabled = true;
+  preloadBtn.textContent = 'Downloading…';
+  S.showStatus(statusEl, 'Downloading the AI model — about 54 MB, one time only. Keep this tab open; Wi-Fi is best.');
+  progress.classList.add('show');
+  bar.style.width = '3%';
+  try {
+    const mod = await getLib();
+    if (typeof mod.preload !== 'function') throw new Error('Model preload is not available in this browser build.');
+    await mod.preload({
+      model: 'isnet_quint8',
+      progress: function (key, current, total) {
+        if (total > 0) {
+          const pct = Math.min(99, Math.round((current / total) * 100));
+          bar.style.width = pct + '%';
+          S.showStatus(statusEl, 'Downloading the AI model… ' + pct + '% — at 100% it is saved in your browser cache.');
+        }
+      }
+    });
+    bar.style.width = '100%';
+    markModelReady();
+    S.showStatus(statusEl, 'AI model downloaded and saved in your browser cache. Now pick a photo in Step 2 — it will process straight away, with no download wait.');
+  } catch (err) {
+    console.error(err);
+    preloadBtn.disabled = false;
+    preloadBtn.textContent = 'Try the download again';
+    const detail = err && err.message ? String(err.message).slice(0, 140) : '';
+    S.showStatus(statusEl, 'The model download did not finish. Check your connection and tap “Try the download again”.' + (detail ? ' (Detail: ' + detail + ')' : ''), true);
+  } finally {
+    setTimeout(function () { progress.classList.remove('show'); bar.style.width = '0%'; }, 600);
+  }
+});
 
 const MAX_SIDE = 1024;
 async function prepareImage(file) {
@@ -267,10 +340,15 @@ async function process(file) {
     S.showStatus(statusEl, 'Please choose an image file (JPG or PNG works best).', true);
     return;
   }
+  if (!modelReady) {
+    S.showStatus(statusEl, 'One thing first: download the AI model in Step 1 above — one download (~54 MB), saved in your browser cache, and then every cut-out is fast.', true);
+    document.getElementById('bg-model-step').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
   previews.hidden = true;
   actions.hidden = true;
   resultBlob = null;
-  S.showStatus(statusEl, 'Loading the AI model in your browser — the first run downloads about 54 MB in total and can take a little while…');
+  S.showStatus(statusEl, 'Preparing your photo…');
   progress.classList.add('show');
   bar.style.width = '5%';
   lastAdvance = Date.now();
@@ -301,6 +379,7 @@ async function process(file) {
       }
     });
     bar.style.width = '100%';
+    if (!modelReady) markModelReady();
     resultBlob = blob;
     resultName = S.baseName(file.name) + '-no-background.png';
     beforeImg.src = URL.createObjectURL(file);

@@ -98,6 +98,13 @@ p{margin:.6em 0}
 .tool-shell{max-width:860px;margin:0 auto}
 .dropzone{border:2px dashed #b9c8e8;border-radius:16px;background:#fbfcff;padding:2.2rem 1.2rem;text-align:center;cursor:pointer;transition:border-color .15s,background .15s}
 .dropzone:hover,.dropzone.dragover{border-color:var(--accent);background:#eef3ff}
+.model-step{border:1px solid var(--border);background:#f4f8ff;border-radius:16px;padding:1.2rem 1.3rem;margin-bottom:1.4rem}
+.model-step h3{margin:.1rem 0 .45rem}
+.model-step p{margin:.25rem 0 .85rem;color:var(--muted)}
+.model-step .btn:disabled{opacity:.65;cursor:default}
+.model-step .meta-line{margin-bottom:0}
+.tool-step-label{margin:0 0 .6rem}
+.dropzone.locked{opacity:.45;pointer-events:none;filter:grayscale(.4)}
 .dropzone svg{width:44px;height:44px;stroke:var(--accent);margin-bottom:.4rem}
 .dropzone p{margin:.2rem 0;color:var(--muted)}
 .dropzone strong{color:var(--ink)}
