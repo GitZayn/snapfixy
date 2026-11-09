@@ -247,6 +247,28 @@ let modelReady = false;
 const MODEL_FLAG = 'snapfixy-bg-model-v1';
 const preloadBtn = document.getElementById('bg-preload');
 const modelState = document.getElementById('bg-model-state');
+
+/* Service worker: caches the AI model files in Cache Storage as they are
+   fetched, so the one-off download is truly saved on this device. */
+let swReady = Promise.resolve();
+if ('serviceWorker' in navigator) {
+  swReady = navigator.serviceWorker.register('/sw.js')
+    .then(function () { return navigator.serviceWorker.ready; })
+    .catch(function (err) { console.warn('Service worker registration failed', err); });
+}
+
+/* The library memoises its initialisation by config — a failed download
+   would otherwise poison every retry in this page session. Rotating an
+   explicit-default field changes the memo key without changing the
+   validated config, so each attempt really does try again. */
+function configVariant(attempt) {
+  if (attempt === 1) return { rescale: true };
+  if (attempt === 2) return { proxyToWorker: true };
+  if (attempt >= 3) return { rescale: true, proxyToWorker: true };
+  return {};
+}
+function sleep(ms) { return new Promise(function (res) { setTimeout(res, ms); }); }
+let processAttempts = 0;
 let lastAdvance = 0;
 let lastPct = 0;
 let watchdog = null;
@@ -294,18 +316,35 @@ preloadBtn.addEventListener('click', async function () {
   progress.classList.add('show');
   bar.style.width = '3%';
   try {
+    await swReady;
     const mod = await getLib();
     if (typeof mod.preload !== 'function') throw new Error('Model preload is not available in this browser build.');
-    await mod.preload({
-      model: 'isnet_quint8',
-      progress: function (key, current, total) {
-        if (total > 0) {
-          const pct = Math.min(99, Math.round((current / total) * 100));
-          bar.style.width = pct + '%';
-          S.showStatus(statusEl, 'Downloading the AI model… ' + pct + '% — at 100% it is saved in your browser cache.');
+    let lastErr = null;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const cfg = Object.assign({
+          model: 'isnet_quint8',
+          progress: function (key, current, total) {
+            if (total > 0) {
+              const pct = Math.min(99, Math.round((current / total) * 100));
+              bar.style.width = pct + '%';
+              S.showStatus(statusEl, 'Downloading the AI model… ' + pct + '% — at 100% it is saved in your browser cache.');
+            }
+          }
+        }, configVariant(attempt));
+        await mod.preload(cfg);
+        lastErr = null;
+        break;
+      } catch (e) {
+        lastErr = e;
+        console.error('Model download attempt ' + (attempt + 1) + ' failed', e);
+        if (attempt < 2) {
+          S.showStatus(statusEl, 'The download was interrupted — retrying (attempt ' + (attempt + 2) + ' of 3). Parts already downloaded are saved, so this picks up quickly.');
+          await sleep(1500);
         }
       }
-    });
+    }
+    if (lastErr) throw lastErr;
     bar.style.width = '100%';
     markModelReady();
     S.showStatus(statusEl, 'AI model downloaded and saved in your browser cache. Now pick a photo in Step 2 — it will process straight away, with no download wait.');
@@ -361,12 +400,14 @@ async function process(file) {
       S.showStatus(statusEl, 'Still working at ' + lastPct + '% — the one-off model download is about 54 MB, so on a slow connection this can take a few minutes. Keep this tab open and stay on Wi-Fi if you can.');
     }
   }, 5000);
+  processAttempts++;
   try {
+    await swReady;
     const removeBackground = await getRemover();
     S.showStatus(statusEl, 'Model ready — preparing your photo…');
     const prepared = await prepareImage(file);
     S.showStatus(statusEl, 'Removing the background on your device…');
-    const blob = await removeBackground(prepared, {
+    const blob = await removeBackground(prepared, Object.assign({
       model: 'isnet_quint8',
       output: { format: 'image/png', quality: 1, type: 'foreground' },
       progress: function (key, current, total) {
@@ -380,7 +421,7 @@ async function process(file) {
           }
         }
       }
-    });
+    }, configVariant(processAttempts)));
     bar.style.width = '100%';
     if (!modelReady) markModelReady();
     resultBlob = blob;
