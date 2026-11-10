@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    { "source": "/image-compressor", "destination": "/compress-image/", "permanent": true },
+    { "source": "/image-compressor/", "destination": "/compress-image/", "permanent": true },
+    { "source": "/image-converter", "destination": "/convert-image/", "permanent": true },
+    { "source": "/image-converter/", "destination": "/convert-image/", "permanent": true },
+    { "source": "/image-resizer", "destination": "/resize-image/", "permanent": true },
+    { "source": "/image-resizer/", "destination": "/resize-image/", "permanent": true },
+    { "source": "/pdf-merge", "destination": "/merge-pdf/", "permanent": true },
+    { "source": "/pdf-merge/", "destination": "/merge-pdf/", "permanent": true },
+    { "source": "/pdf-split", "destination": "/split-pdf/", "permanent": true },
+    { "source": "/pdf-split/", "destination": "/split-pdf/", "permanent": true },
+    { "source": "/pdf-compressor", "destination": "/compress-pdf/", "permanent": true },
+    { "source": "/pdf-compressor/", "destination": "/compress-pdf/", "permanent": true }
+  ]
+}

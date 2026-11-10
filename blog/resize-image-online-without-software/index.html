@@ -42,17 +42,25 @@ gtag('config', 'G-FP1WDZ3MRQ');
       <svg viewBox="0 0 24 24" fill="none" stroke="#131a26" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-      <a href="/background-remover/">Background Remover</a>
-      <a href="/image-compressor/">Image Compressor</a>
-      <a href="/pdf-merge/">PDF Merge</a>
-      <a href="/blog/">Blog</a>
-      <a href="/about/">About</a>
-      <a href="/contact/">Contact</a>
+      <a href="/background-remover/" data-i18n="tool.bg">Background Remover</a>
+      <a href="/compress-image/" data-i18n="tool.comp">Image Compressor</a>
+      <a href="/merge-pdf/" data-i18n="tool.merge">PDF Merge</a>
+      <a href="/blog/" data-i18n="nav.blog">Blog</a>
+      <a href="/about/" data-i18n="nav.about">About</a>
+      <a href="/contact/" data-i18n="nav.contact">Contact</a>
     </nav>
+    <select class="lang-select" id="lang-select" aria-label="Language">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="pt">Português</option>
+    </select>
   </div>
 </header>
 
 <main>
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/" data-i18n="crumb.home">Home</a></li><li><a href="/blog/" data-i18n="nav.blog">Blog</a></li><li aria-current="page"><span>How to resize an image online without software</span></li></ol></div></nav>
   <section class="section" style="padding-top:2.2rem">
     <article class="article container">
       <h1>How to resize an image online without software</h1>
@@ -62,7 +70,7 @@ gtag('config', 'G-FP1WDZ3MRQ');
 
       <h2>The steps</h2>
       <ol>
-        <li><strong>Open the <a href="/image-resizer/">image resizer</a></strong> and drop in your photo. The tool shows its current dimensions — a typical phone photo is around 4032 × 3024.</li>
+        <li><strong>Open the <a href="/resize-image/">image resizer</a></strong> and drop in your photo. The tool shows its current dimensions — a typical phone photo is around 4032 × 3024.</li>
         <li><strong>Decide the size you need.</strong> If a platform states a size, use it. If not, the table below covers the common cases.</li>
         <li><strong>Type the new width.</strong> With proportions kept (the default), the height updates itself — this is the setting that stops faces looking stretched.</li>
         <li><strong>Resize and download.</strong> Compare the preview and sizes, and save the result. Your original is never modified.</li>
@@ -81,7 +89,7 @@ gtag('config', 'G-FP1WDZ3MRQ');
       <p>An image's aspect ratio is the relationship between its width and height. Change one without the other and circles become ovals and people become wider or thinner. Unless a destination demands an exact box <em>and</em> you're prepared to crop instead, always resize proportionally — type one dimension and let the other follow. If you genuinely need a different shape (a square profile picture from a landscape photo, say), that's a crop, not a resize: resizing alone can't invent the missing edges.</p>
 
       <h2>Resizing vs compressing — which do you need?</h2>
-      <p>They're cousins, not twins. <strong>Resizing</strong> changes the pixel dimensions. <strong>Compressing</strong> keeps the dimensions and reduces the file's weight by re-encoding it. If a form says "maximum 800px wide", resize. If it says "maximum 2&nbsp;MB", compress — our <a href="/image-compressor/">image compressor</a> shows the saving live, and our guide to <a href="/blog/compress-image-without-losing-quality/">compressing without losing quality</a> explains the settings. Often the best result comes from both: resize to the display size first, then one compression pass at the end.</p>
+      <p>They're cousins, not twins. <strong>Resizing</strong> changes the pixel dimensions. <strong>Compressing</strong> keeps the dimensions and reduces the file's weight by re-encoding it. If a form says "maximum 800px wide", resize. If it says "maximum 2&nbsp;MB", compress — our <a href="/compress-image/">image compressor</a> shows the saving live, and our guide to <a href="/blog/compress-image-without-losing-quality/">compressing without losing quality</a> explains the settings. Often the best result comes from both: resize to the display size first, then one compression pass at the end.</p>
 
       <h2>A quick word on print and "DPI"</h2>
       <p>People sometimes ask whether resizing affects print quality. What matters for print is how many pixels you have across the physical size you'll print at: a photo printed at 6 × 4 inches looks sharp with roughly 1800 × 1200 pixels (300 pixels per inch) and acceptable at half that. On screen, only the pixel dimensions matter — the "72 vs 300 DPI" setting in a file is essentially a label that screens ignore. So if an image is destined for print, resize conservatively and keep the highest-resolution original safe; if it's for a screen, the sizes in the table above are all you need to think about.</p>
@@ -93,8 +101,8 @@ gtag('config', 'G-FP1WDZ3MRQ');
 
       <div class="cta-box">
         <h3>Resize an image now</h3>
-        <p>The free <a href="/image-resizer/">SnapFixy image resizer</a> gives you exact pixel sizes with proportions locked — in your browser, with no upload.</p>
-        <a class="btn" href="/image-resizer/">Resize an image</a>
+        <p>The free <a href="/resize-image/">SnapFixy image resizer</a> gives you exact pixel sizes with proportions locked — in your browser, with no upload.</p>
+        <a class="btn" href="/resize-image/">Resize an image</a>
       </div>
 
       <p><a href="/blog/">← Back to the blog</a></p>
@@ -106,42 +114,43 @@ gtag('config', 'G-FP1WDZ3MRQ');
   <div class="container footer-grid">
     <div class="footer-brand">
       <h4>SnapFixy</h4>
-      <p>Free online image and PDF tools that run in your browser. Your files never leave your device.</p>
+      <p data-i18n="footer.tagline">Free online image and PDF tools that run in your browser. Your files never leave your device.</p>
     </div>
     <nav aria-label="Image tools">
-      <h4>Image tools</h4>
+      <h4 data-i18n="sec.imageTools">Image tools</h4>
       <ul>
-        <li><a href="/background-remover/">Background Remover</a></li>
-        <li><a href="/image-compressor/">Image Compressor</a></li>
-        <li><a href="/image-converter/">Image Converter</a></li>
-        <li><a href="/image-resizer/">Image Resizer</a></li>
+        <li><a href="/background-remover/" data-i18n="tool.bg">Background Remover</a></li>
+        <li><a href="/compress-image/" data-i18n="tool.comp">Image Compressor</a></li>
+        <li><a href="/convert-image/" data-i18n="tool.conv">Image Converter</a></li>
+        <li><a href="/resize-image/" data-i18n="tool.res">Image Resizer</a></li>
       </ul>
     </nav>
     <nav aria-label="PDF tools">
-      <h4>PDF tools</h4>
+      <h4 data-i18n="sec.pdfTools">PDF tools</h4>
       <ul>
-        <li><a href="/pdf-merge/">PDF Merge</a></li>
-        <li><a href="/pdf-split/">PDF Split</a></li>
-        <li><a href="/pdf-compressor/">PDF Compressor</a></li>
+        <li><a href="/merge-pdf/" data-i18n="tool.merge">PDF Merge</a></li>
+        <li><a href="/split-pdf/" data-i18n="tool.split">PDF Split</a></li>
+        <li><a href="/compress-pdf/" data-i18n="tool.pdfc">PDF Compressor</a></li>
       </ul>
     </nav>
     <nav aria-label="Company">
-      <h4>Company</h4>
+      <h4 data-i18n="footer.company">Company</h4>
       <ul>
-        <li><a href="/about/">About Us</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/privacy-policy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Use</a></li>
+        <li><a href="/about/" data-i18n="footer.about">About Us</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="/contact/" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="/privacy-policy/" data-i18n="footer.privacy">Privacy Policy</a></li>
+        <li><a href="/terms/" data-i18n="footer.terms">Terms of Use</a></li>
       </ul>
     </nav>
   </div>
   <div class="container footer-bottom">
     <span>© <span id="year">2026</span> SnapFixy. All rights reserved.</span>
-    <span>Site by <a href="https://zee-developers.co.uk" target="_blank" rel="noopener">Zee Developers</a></span>
-    <span>Made for the open web — no uploads, no sign-ups.</span>
+    <span data-i18n-html="footer.siteBy">Site by <a href="https://zee-developers.co.uk" target="_blank" rel="noopener">Zee Developers</a></span>
+    <span data-i18n="footer.madeFor">Made for the open web — no uploads, no sign-ups.</span>
   </div>
 </footer>
 <script src="/assets/js/main.js"></script>
+<script src="/assets/js/i18n.js"></script>
 </body>
 </html>

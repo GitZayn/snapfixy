@@ -34,7 +34,7 @@ gtag('js', new Date());
 gtag('config', 'G-FP1WDZ3MRQ');
 </script>
 </head>
-<body>
+<body data-i18n-page="home">
 <header class="site-header">
   <div class="container header-inner">
     <a class="logo" href="/" aria-label="SnapFixy home">
@@ -45,130 +45,137 @@ gtag('config', 'G-FP1WDZ3MRQ');
       <svg viewBox="0 0 24 24" fill="none" stroke="#131a26" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-      <a href="/background-remover/">Background Remover</a>
-      <a href="/image-compressor/">Image Compressor</a>
-      <a href="/pdf-merge/">PDF Merge</a>
-      <a href="/blog/">Blog</a>
-      <a href="/about/">About</a>
-      <a href="/contact/">Contact</a>
+      <a href="/background-remover/" data-i18n="tool.bg">Background Remover</a>
+      <a href="/compress-image/" data-i18n="tool.comp">Image Compressor</a>
+      <a href="/merge-pdf/" data-i18n="tool.merge">PDF Merge</a>
+      <a href="/blog/" data-i18n="nav.blog">Blog</a>
+      <a href="/about/" data-i18n="nav.about">About</a>
+      <a href="/contact/" data-i18n="nav.contact">Contact</a>
     </nav>
+    <select class="lang-select" id="lang-select" aria-label="Language">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="pt">Português</option>
+    </select>
   </div>
 </header>
 
 <main>
   <section class="hero">
     <div class="container">
-      <h1>Remove an image background in seconds — without uploading your photo</h1>
-      <p class="lede">SnapFixy is a set of free image and PDF tools that run entirely in your web browser. No uploads, no sign-up, no watermarks — your files are processed on your own device and never leave it.</p>
+      <h1 data-i18n="home.h1">Remove an image background in seconds — without uploading your photo</h1>
+      <p class="lede" data-i18n="home.lede">SnapFixy is a set of free image and PDF tools that run entirely in your web browser. No uploads, no sign-up, no watermarks — your files are processed on your own device and never leave it.</p>
       <div class="hero-actions">
-        <a class="btn" href="/background-remover/">Remove a background — free</a>
-        <a class="btn secondary" href="#tools">See all tools</a>
+        <a class="btn" href="/background-remover/" data-i18n="home.cta1">Remove a background — free</a>
+        <a class="btn secondary" href="#tools" data-i18n="home.cta2">See all tools</a>
       </div>
       <div class="trust-badges">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 3l7 3v5c0 5-3.2 8.2-7 10-3.8-1.8-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg> 100% private — nothing is uploaded</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> No sign-up or install</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Free, no watermarks</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 3l7 3v5c0 5-3.2 8.2-7 10-3.8-1.8-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg> <span data-i18n="home.badge1">100% private — nothing is uploaded</span></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> <span data-i18n="home.badge2">No sign-up or install</span></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="home.badge3">Free, no watermarks</span></span>
       </div>
     </div>
   </section>
 
   <section class="section" id="tools">
     <div class="container">
-      <h2>Image tools</h2>
-      <p class="section-sub">Everyday image jobs, done in your browser in a few clicks.</p>
+      <h2 data-i18n="sec.imageTools">Image tools</h2>
+      <p class="section-sub" data-i18n="home.imgSub">Everyday image jobs, done in your browser in a few clicks.</p>
       <div class="tool-grid">
         <a class="tool-card" href="/background-remover/">
           <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="3.4"/><path d="M4.5 20c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M16 4l5 5M21 4l-5 5"/></svg></span>
-          <h3>Background Remover</h3>
-          <p>Cut the background out of any photo with AI and download a transparent PNG — ideal for product shots, profiles and listings.</p>
-          <span class="go">Open tool →</span>
+          <h3 data-i18n="tool.bg">Background Remover</h3>
+          <p data-i18n="card.bg.d">Cut the background out of any photo with AI and download a transparent PNG — ideal for product shots, profiles and listings.</p>
+          <span class="go" data-i18n="card.open">Open tool →</span>
         </a>
-        <a class="tool-card" href="/image-compressor/">
+        <a class="tool-card" href="/compress-image/">
           <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5"/></svg></span>
-          <h3>Image Compressor</h3>
-          <p>Shrink JPG, PNG and WebP file sizes with a quality slider, and see exactly how much you saved before you download.</p>
-          <span class="go">Open tool →</span>
+          <h3 data-i18n="tool.comp">Image Compressor</h3>
+          <p data-i18n="card.comp.d">Shrink JPG, PNG and WebP file sizes with a quality slider, and see exactly how much you saved before you download.</p>
+          <span class="go" data-i18n="card.open">Open tool →</span>
         </a>
-        <a class="tool-card" href="/image-converter/">
+        <a class="tool-card" href="/convert-image/">
           <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h11l-3-3M17 16H6l3 3"/></svg></span>
-          <h3>Image Converter</h3>
-          <p>Convert images between PNG, JPG and WebP formats in seconds, with no software to install and no file-size limits from us.</p>
-          <span class="go">Open tool →</span>
+          <h3 data-i18n="tool.conv">Image Converter</h3>
+          <p data-i18n="card.conv.d">Convert images between PNG, JPG and WebP formats in seconds, with no software to install and no file-size limits from us.</p>
+          <span class="go" data-i18n="card.open">Open tool →</span>
         </a>
-        <a class="tool-card" href="/image-resizer/">
+        <a class="tool-card" href="/resize-image/">
           <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 15v5h-5"/><rect x="7" y="7" width="10" height="10" rx="1.5"/></svg></span>
-          <h3>Image Resizer</h3>
-          <p>Resize an image to exact pixel dimensions for social media, websites and documents, keeping the proportions if you wish.</p>
-          <span class="go">Open tool →</span>
+          <h3 data-i18n="tool.res">Image Resizer</h3>
+          <p data-i18n="card.res.d">Resize an image to exact pixel dimensions for social media, websites and documents, keeping the proportions if you wish.</p>
+          <span class="go" data-i18n="card.open">Open tool →</span>
         </a>
       </div>
 
-      <h2 style="margin-top:2.6rem">PDF tools</h2>
-      <p class="section-sub">Combine, extract and tidy PDF documents — again, without sending them anywhere.</p>
+      <h2 style="margin-top:2.6rem" data-i18n="sec.pdfTools">PDF tools</h2>
+      <p class="section-sub" data-i18n="home.pdfSub">Combine, extract and tidy PDF documents — again, without sending them anywhere.</p>
       <div class="tool-grid">
-        <a class="tool-card" href="/pdf-merge/">
+        <a class="tool-card" href="/merge-pdf/">
           <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h2M16 3h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-2M12 8v8M8.5 12.5L12 16l3.5-3.5"/></svg></span>
-          <h3>PDF Merge</h3>
-          <p>Combine several PDFs into one document, in the order you choose — handy for applications, invoices and reports.</p>
-          <span class="go">Open tool →</span>
+          <h3 data-i18n="tool.merge">PDF Merge</h3>
+          <p data-i18n="card.merge.d">Combine several PDFs into one document, in the order you choose — handy for applications, invoices and reports.</p>
+          <span class="go" data-i18n="card.open">Open tool →</span>
         </a>
-        <a class="tool-card" href="/pdf-split/">
+        <a class="tool-card" href="/split-pdf/">
           <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.4"/><circle cx="7" cy="17" r="2.4"/><path d="M9 8.5L20 19M9 15.5L20 5"/></svg></span>
-          <h3>PDF Split</h3>
-          <p>Pull out just the pages you need — a single page or a range such as 2–5 — and save them as a new, smaller PDF.</p>
-          <span class="go">Open tool →</span>
+          <h3 data-i18n="tool.split">PDF Split</h3>
+          <p data-i18n="card.split.d">Pull out just the pages you need — a single page or a range such as 2–5 — and save them as a new, smaller PDF.</p>
+          <span class="go" data-i18n="card.open">Open tool →</span>
         </a>
-        <a class="tool-card" href="/pdf-compressor/">
+        <a class="tool-card" href="/compress-pdf/">
           <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v6M12 10l-2.5-2.5M12 10l2.5-2.5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></span>
-          <h3>PDF Compressor</h3>
-          <p>Re-save a PDF with a tidier, more compact structure to trim wasted space — with honest expectations about the saving.</p>
-          <span class="go">Open tool →</span>
+          <h3 data-i18n="tool.pdfc">PDF Compressor</h3>
+          <p data-i18n="card.pdfc.d">Re-save a PDF with a tidier, more compact structure to trim wasted space — with honest expectations about the saving.</p>
+          <span class="go" data-i18n="card.open">Open tool →</span>
         </a>
       </div>
 
       <div class="privacy-band">
-        <h2>Your files never leave your device</h2>
-        <p>Most online tools work by uploading your files to a server, processing them there, and letting you download the result. SnapFixy works differently: the processing happens in your own browser, using your own device. Your photos and documents are never sent to us — in fact, they are never sent anywhere at all.</p>
+        <h2 data-i18n="home.privacyH">Your files never leave your device</h2>
+        <p data-i18n="home.privacyP">Most online tools work by uploading your files to a server, processing them there, and letting you download the result. SnapFixy works differently: the processing happens in your own browser, using your own device. Your photos and documents are never sent to us — in fact, they are never sent anywhere at all.</p>
         <div class="privacy-points">
-          <div class="privacy-point"><strong>No uploads</strong><span>Files are opened and processed locally by your browser. Nothing is transmitted to a server.</span></div>
-          <div class="privacy-point"><strong>No accounts</strong><span>There is no sign-up and no profile. We do not know who you are, and we like it that way.</span></div>
-          <div class="privacy-point"><strong>No copies kept</strong><span>Because nothing reaches us, there is nothing for us to store, lose or share. Close the tab and it is gone.</span></div>
-          <div class="privacy-point"><strong>Works offline-capable</strong><span>Once a tool has loaded, much of it keeps working even if your connection drops.</span></div>
+          <div class="privacy-point"><strong data-i18n="home.pp1t">No uploads</strong><span data-i18n="home.pp1d">Files are opened and processed locally by your browser. Nothing is transmitted to a server.</span></div>
+          <div class="privacy-point"><strong data-i18n="home.pp2t">No accounts</strong><span data-i18n="home.pp2d">There is no sign-up and no profile. We do not know who you are, and we like it that way.</span></div>
+          <div class="privacy-point"><strong data-i18n="home.pp3t">No copies kept</strong><span data-i18n="home.pp3d">Because nothing reaches us, there is nothing for us to store, lose or share. Close the tab and it is gone.</span></div>
+          <div class="privacy-point"><strong data-i18n="home.pp4t">Works offline-capable</strong><span data-i18n="home.pp4d">Once a tool has loaded, much of it keeps working even if your connection drops.</span></div>
         </div>
       </div>
 
-      <h2 style="text-align:center">How SnapFixy works</h2>
-      <p class="section-sub">Three steps, the same for every tool on the site.</p>
+      <h2 style="text-align:center" data-i18n="home.howH">How SnapFixy works</h2>
+      <p class="section-sub" data-i18n="home.howSub">Three steps, the same for every tool on the site.</p>
       <div class="steps">
-        <div class="step"><span class="num">1</span><h3>Choose a tool</h3><p>Pick the job you need — removing a background, compressing an image, merging PDFs and more.</p></div>
-        <div class="step"><span class="num">2</span><h3>Add your file</h3><p>Drag and drop or browse. The file is opened by your browser only — it is not uploaded anywhere.</p></div>
-        <div class="step"><span class="num">3</span><h3>Download the result</h3><p>Your browser does the work and hands you the finished file. Simple, fast and private.</p></div>
+        <div class="step"><span class="num">1</span><h3 data-i18n="home.step1t">Choose a tool</h3><p data-i18n="home.step1d">Pick the job you need — removing a background, compressing an image, merging PDFs and more.</p></div>
+        <div class="step"><span class="num">2</span><h3 data-i18n="home.step2t">Add your file</h3><p data-i18n="home.step2d">Drag and drop or browse. The file is opened by your browser only — it is not uploaded anywhere.</p></div>
+        <div class="step"><span class="num">3</span><h3 data-i18n="home.step3t">Download the result</h3><p data-i18n="home.step3d">Your browser does the work and hands you the finished file. Simple, fast and private.</p></div>
       </div>
     </div>
   </section>
 
   <section class="section soft">
     <div class="container">
-      <h2>Frequently asked questions</h2>
+      <h2 data-i18n="home.faqH">Frequently asked questions</h2>
       <div class="faq">
         <details>
-          <summary>Are the tools really free?</summary>
+          <summary data-i18n="home.faq1">Are the tools really free?</summary>
           <p>Yes. Every tool on SnapFixy is free to use, with no watermarks on your downloads and no sign-up. The site is supported by advertising, which is why you may see ads alongside the tools — but the tools themselves cost nothing.</p>
         </details>
         <details>
-          <summary>How can the tools work without uploading my files?</summary>
+          <summary data-i18n="home.faq2">How can the tools work without uploading my files?</summary>
           <p>Modern browsers are powerful enough to run image processing, AI models and PDF libraries directly on your device. SnapFixy loads that software into your browser once, and your files are processed there. Because the file never travels over the internet, the tool also tends to feel fast — there is no upload or download queue.</p>
         </details>
         <details>
-          <summary>Is there a file-size limit?</summary>
+          <summary data-i18n="home.faq3">Is there a file-size limit?</summary>
           <p>We do not impose one. The practical limit is your device's memory: very large images or PDFs with hundreds of pages will take longer and may strain an older phone. If a job struggles, try a smaller file or a desktop browser.</p>
         </details>
         <details>
-          <summary>Which browsers are supported?</summary>
+          <summary data-i18n="home.faq4">Which browsers are supported?</summary>
           <p>Any current browser — Chrome, Edge, Firefox or Safari on desktop, and modern mobile browsers. The background remover works best in an up-to-date desktop browser, because it runs a small AI model on your device.</p>
         </details>
         <details>
-          <summary>Do you keep a copy of anything I process?</summary>
+          <summary data-i18n="home.faq5">Do you keep a copy of anything I process?</summary>
           <p>No. Your files are never sent to us, so there is nothing for us to keep. You can read exactly how the site handles data in our <a href="/privacy-policy/">Privacy Policy</a>.</p>
         </details>
       </div>
@@ -180,42 +187,43 @@ gtag('config', 'G-FP1WDZ3MRQ');
   <div class="container footer-grid">
     <div class="footer-brand">
       <h4>SnapFixy</h4>
-      <p>Free online image and PDF tools that run in your browser. Your files never leave your device.</p>
+      <p data-i18n="footer.tagline">Free online image and PDF tools that run in your browser. Your files never leave your device.</p>
     </div>
     <nav aria-label="Image tools">
-      <h4>Image tools</h4>
+      <h4 data-i18n="sec.imageTools">Image tools</h4>
       <ul>
-        <li><a href="/background-remover/">Background Remover</a></li>
-        <li><a href="/image-compressor/">Image Compressor</a></li>
-        <li><a href="/image-converter/">Image Converter</a></li>
-        <li><a href="/image-resizer/">Image Resizer</a></li>
+        <li><a href="/background-remover/" data-i18n="tool.bg">Background Remover</a></li>
+        <li><a href="/compress-image/" data-i18n="tool.comp">Image Compressor</a></li>
+        <li><a href="/convert-image/" data-i18n="tool.conv">Image Converter</a></li>
+        <li><a href="/resize-image/" data-i18n="tool.res">Image Resizer</a></li>
       </ul>
     </nav>
     <nav aria-label="PDF tools">
-      <h4>PDF tools</h4>
+      <h4 data-i18n="sec.pdfTools">PDF tools</h4>
       <ul>
-        <li><a href="/pdf-merge/">PDF Merge</a></li>
-        <li><a href="/pdf-split/">PDF Split</a></li>
-        <li><a href="/pdf-compressor/">PDF Compressor</a></li>
+        <li><a href="/merge-pdf/" data-i18n="tool.merge">PDF Merge</a></li>
+        <li><a href="/split-pdf/" data-i18n="tool.split">PDF Split</a></li>
+        <li><a href="/compress-pdf/" data-i18n="tool.pdfc">PDF Compressor</a></li>
       </ul>
     </nav>
     <nav aria-label="Company">
-      <h4>Company</h4>
+      <h4 data-i18n="footer.company">Company</h4>
       <ul>
-        <li><a href="/about/">About Us</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/privacy-policy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Use</a></li>
+        <li><a href="/about/" data-i18n="footer.about">About Us</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="/contact/" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="/privacy-policy/" data-i18n="footer.privacy">Privacy Policy</a></li>
+        <li><a href="/terms/" data-i18n="footer.terms">Terms of Use</a></li>
       </ul>
     </nav>
   </div>
   <div class="container footer-bottom">
     <span>© <span id="year">2026</span> SnapFixy. All rights reserved.</span>
-    <span>Site by <a href="https://zee-developers.co.uk" target="_blank" rel="noopener">Zee Developers</a></span>
-    <span>Made for the open web — no uploads, no sign-ups.</span>
+    <span data-i18n-html="footer.siteBy">Site by <a href="https://zee-developers.co.uk" target="_blank" rel="noopener">Zee Developers</a></span>
+    <span data-i18n="footer.madeFor">Made for the open web — no uploads, no sign-ups.</span>
   </div>
 </footer>
 <script src="/assets/js/main.js"></script>
+<script src="/assets/js/i18n.js"></script>
 </body>
 </html>
