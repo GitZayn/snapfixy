@@ -9,12 +9,12 @@ files are never uploaded to a server.
 | Tool | Path | How it works |
 | --- | --- | --- |
 | Background Remover | `/background-remover/` | AI cut-outs in the browser via `@imgly/background-removal` (ONNX model + WASM served from the IMG.LY CDN; the user's image never leaves the device) |
-| Image Compressor | `/image-compressor/` | Canvas re-encode with a quality slider and before/after sizes |
-| Image Converter | `/image-converter/` | PNG / JPG / WebP conversion via canvas |
-| Image Resizer | `/image-resizer/` | Exact pixel resizing via canvas, with aspect-ratio lock and presets |
-| PDF Merge | `/pdf-merge/` | Combines PDFs with `pdf-lib` in the browser |
-| PDF Split | `/pdf-split/` | Extracts page ranges with `pdf-lib` |
-| PDF Compressor | `/pdf-compressor/` | Re-saves with compressed object streams via `pdf-lib`; honest about its limits |
+| Image Compressor | `/compress-image/` | Canvas re-encode with a quality slider and before/after sizes |
+| Image Converter | `/convert-image/` | PNG / JPG / WebP conversion via canvas |
+| Image Resizer | `/resize-image/` | Exact pixel resizing via canvas, with aspect-ratio lock and presets |
+| PDF Merge | `/merge-pdf/` | Combines PDFs with `pdf-lib` in the browser |
+| PDF Split | `/split-pdf/` | Extracts page ranges with `pdf-lib` |
+| PDF Compressor | `/compress-pdf/` | Re-saves with compressed object streams via `pdf-lib`; honest about its limits |
 
 Plus a blog with practical guides, and About / Contact / Privacy Policy /
 Terms pages.
