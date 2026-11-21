@@ -23,7 +23,7 @@
 {"@context":"https://schema.org","@type":"WebApplication","name":"SnapFixy Image Compressor","url":"https://snapfixy.com/compress-image/","applicationCategory":"MultimediaApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will compressing ruin my photo?", "acceptedAnswer": {"@type": "Answer", "text": "At 75–85% quality, most people cannot see any difference in a photograph. Lower settings save more space but can introduce softness or blocky patches, which is why the tool shows you a preview and the exact saving before you download."}}, {"@type": "Question", "name": "Why did my PNG not get much smaller?", "acceptedAnswer": {"@type": "Answer", "text": "PNG compression is lossless, so savings are modest for photographs. For a big reduction on a photo, choose JPG or WebP as the output format. Keep PNG for graphics, screenshots and images that need a transparent background."}}, {"@type": "Question", "name": "Is my image uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The compression runs in your browser on your device. Nothing is sent to a server — see our Privacy Policy."}}, {"@type": "Question", "name": "Can I compress more than one image?", "acceptedAnswer": {"@type": "Answer", "text": "This tool handles one image at a time so you can judge the quality of each result. It is quick to repeat: download, then choose the next image."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will compressing ruin my photo?", "acceptedAnswer": {"@type": "Answer", "text": "At 75–85% quality, most people cannot see any difference in a photograph. Lower settings save more space but can introduce softness or blocky patches, which is why the tool shows you a preview and the exact saving before you download."}}, {"@type": "Question", "name": "Why did my PNG not get much smaller?", "acceptedAnswer": {"@type": "Answer", "text": "PNG compression is lossless, so savings are modest for photographs. For a big reduction on a photo, choose JPG or WebP as the output format. Keep PNG for graphics, screenshots and images that need a transparent background."}}, {"@type": "Question", "name": "Is my image uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The compression runs in your browser on your device. Nothing is sent to a server — see our Privacy Policy."}}, {"@type": "Question", "name": "Can I compress more than one image?", "acceptedAnswer": {"@type": "Answer", "text": "This tool handles one image at a time so you can judge the quality of each result. It is quick to repeat: download, then choose the next image."}}, {"@type": "Question", "name": "What is a good file size for a website image?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single number, but most web images sit happily between 100 KB and 500 KB. A full-width hero photo can be larger, and a small thumbnail should be much smaller. If a page feels slow to load, oversized images are usually the first thing to check."}}, {"@type": "Question", "name": "Can I compress a transparent PNG?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, and it keeps its transparency — but because PNG compression is lossless, the saving on a photograph is small. If the image is a photo with no transparency to protect, JPG or WebP will shrink it far more."}}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://snapfixy.com/"},{"@type":"ListItem","position":2,"name":"Image Compressor","item":"https://snapfixy.com/compress-image/"}]}
@@ -142,7 +142,28 @@ gtag('config', 'G-FP1WDZ3MRQ');
     </div>
   </section>
 
-  <section class="section soft">
+  
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>How to compress an image, step by step</h2>
+      <p>Your files are never uploaded. The whole job runs in your browser, and you can repeat it as often as you like.</p>
+      <ol>
+        <li><strong>Drop your image in</strong> or click to browse. JPG, PNG and WebP are all welcome.</li>
+        <li><strong>Pick a quality level.</strong> The default of 80% is a good starting point for photographs — high enough to look identical, low enough to save real space.</li>
+        <li><strong>Choose an output format.</strong> Keep the original, or switch to JPG for the smallest photos, WebP for the web, or PNG when you need transparency or lossless quality.</li>
+        <li><strong>Compress and compare.</strong> The tool shows the original and compressed versions side by side, with the exact sizes, so you can see the saving before you download.</li>
+        <li><strong>Download — or try again.</strong> If the result looks soft, raise the quality a little and run it again. It costs nothing to experiment.</li>
+      </ol>
+      <h2>Tips for the smallest file without visible loss</h2>
+      <p>The quality slider is the main control, but a few habits save more space than the slider alone. First, always start from the original photo, not from a copy that has already been compressed once — every round of JPG compression throws away a little more detail, and the damage adds up. Second, resize before you compress: a 4,000-pixel photo destined for an 800-pixel slot on a web page should be shrunk with the <a href="/resize-image/">image resizer</a> first, because fewer pixels means a smaller file whatever the quality setting. Third, match the format to the picture — WebP usually beats JPG on size for the same quality, while PNG is the right choice for screenshots, diagrams and anything with text, where JPG's softening would show.</p>
+      <h3>What quality should you choose?</h3>
+      <p>For photographs people will look at closely, 85% and above is safest. For ordinary web use, 75–85% is the sweet spot: the file shrinks a lot and the picture still looks the same. Below 70%, only use it for thumbnails and previews, where nobody will see the image at full size. And if you are preparing images for print rather than the web, do not compress at all — print needs every pixel you have.</p>
+      <p>One image at a time is deliberate. This tool handles a single image per run so you can judge the quality of each result before you download it — a batch compressor that quietly degrades twenty photos at once is how good pictures get ruined. It is quick to repeat: download, then choose the next image.</p>
+          <p>For the full picture, read <a href="/blog/compress-image-without-losing-quality/">how to compress an image without losing quality</a> — and if you are choosing between formats, <a href="/blog/png-vs-jpg-vs-webp/">PNG vs JPG vs WebP</a> explains the trade-offs.</p>
+</div>
+  </section>
+
+<section class="section soft">
     <div class="container">
       <h2>Image compressor — frequently asked questions</h2>
       <div class="faq">
@@ -161,6 +182,14 @@ gtag('config', 'G-FP1WDZ3MRQ');
         <details>
           <summary>Can I compress more than one image?</summary>
           <p>This tool handles one image at a time so you can judge the quality of each result. It is quick to repeat: download, then choose the next image.</p>
+        </details>
+        <details>
+          <summary>What is a good file size for a website image?</summary>
+          <p>There is no single number, but most web images sit happily between 100 KB and 500 KB. A full-width hero photo can be larger, and a small thumbnail should be much smaller. If a page feels slow to load, oversized images are usually the first thing to check.</p>
+        </details>
+        <details>
+          <summary>Can I compress a transparent PNG?</summary>
+          <p>Yes, and it keeps its transparency — but because PNG compression is lossless, the saving on a photograph is small. If the image is a photo with no transparency to protect, JPG or WebP will shrink it far more.</p>
         </details>
       </div>
     </div>

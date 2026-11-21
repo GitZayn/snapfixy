@@ -23,7 +23,7 @@
 {"@context":"https://schema.org","@type":"WebApplication","name":"SnapFixy PDF Split","url":"https://snapfixy.com/split-pdf/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does splitting change my original PDF?", "acceptedAnswer": {"@type": "Answer", "text": "No. The tool reads your original and builds a new file from the pages you chose. Your original stays exactly as it was."}}, {"@type": "Question", "name": "Can I extract pages out of order?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — the pages appear in the new PDF in the order you list them, so 5, 1-2 gives you page 5 first, then pages 1 and 2."}}, {"@type": "Question", "name": "What if I type a page number that does not exist?", "acceptedAnswer": {"@type": "Answer", "text": "The tool will tell you the document's page count and ask you to correct the range before it extracts anything."}}, {"@type": "Question", "name": "My PDF will not load. Why?", "acceptedAnswer": {"@type": "Answer", "text": "Password-protected (encrypted) PDFs cannot be opened in the browser. Remove the protection in the application that created the file first, if you are entitled to. Damaged files may also fail to load."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does splitting change my original PDF?", "acceptedAnswer": {"@type": "Answer", "text": "No. The tool reads your original and builds a new file from the pages you chose. Your original stays exactly as it was."}}, {"@type": "Question", "name": "Can I extract pages out of order?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — the pages appear in the new PDF in the order you list them, so 5, 1-2 gives you page 5 first, then pages 1 and 2."}}, {"@type": "Question", "name": "What if I type a page number that does not exist?", "acceptedAnswer": {"@type": "Answer", "text": "The tool will tell you the document's page count and ask you to correct the range before it extracts anything."}}, {"@type": "Question", "name": "My PDF will not load. Why?", "acceptedAnswer": {"@type": "Answer", "text": "Password-protected (encrypted) PDFs cannot be opened in the browser. Remove the protection in the application that created the file first, if you are entitled to. Damaged files may also fail to load."}}, {"@type": "Question", "name": "Can I split a PDF into individual pages?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Extract one page at a time — for example, pages 1, 2 and 3 as three separate runs — and each becomes its own PDF. For a long document, work through the pages in batches."}}, {"@type": "Question", "name": "Will the extracted pages keep their links and bookmarks?", "acceptedAnswer": {"@type": "Answer", "text": "The text, images and layout of the pages are preserved exactly. Interactive extras such as bookmarks and clickable links are not guaranteed to carry over, so check the result before you send it on."}}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://snapfixy.com/"},{"@type":"ListItem","position":2,"name":"PDF Split","item":"https://snapfixy.com/split-pdf/"}]}
@@ -119,7 +119,25 @@ gtag('config', 'G-FP1WDZ3MRQ');
     </div>
   </section>
 
-  <section class="section soft">
+  
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>How to split a PDF, step by step</h2>
+      <p>Your files are never uploaded. The whole job runs in your browser, and your original PDF is never changed.</p>
+      <ol>
+        <li><strong>Drop your PDF in</strong> or click to browse. The tool counts its pages and tells you how many there are.</li>
+        <li><strong>Type the pages you want.</strong> Single numbers (2), ranges (1-4), or a mixture (1-3, 7, 10-12) — separated by commas.</li>
+        <li><strong>Extract.</strong> Your browser copies exactly those pages, in the order you listed them, into a brand-new PDF.</li>
+        <li><strong>Download the extract</strong> and check it before you send it on.</li>
+      </ol>
+      <h2>Tips for clean extracts</h2>
+      <p>Check the page count first — it is easy to ask for page 12 of a ten-page document, and the tool will ask you to correct the range. List the pages in the order you want them in the result, because the extract follows your list, not the original order. And remember that splitting and merging work as a pair: extract the pages you need from several documents, then combine them with the <a href="/merge-pdf/">PDF merge</a> tool into one tidy file. Your original stays exactly as it was, so there is no risk in trying again if the first extract is not quite right.</p>
+      <p>Splitting is also the polite way to share a document. Rather than forwarding a sixty-page report when a colleague needs one table, or sending an entire bank statement when a form asks for a single page, you extract just what is needed. The file is smaller to send, and — just as importantly — pages that were never meant for the recipient never leave your desk. For documents that carry personal information, that matters more than the file size.</p>
+          <p>For the full walkthrough, read <a href="/blog/split-pdf-into-separate-pages/">how to split a PDF into separate pages</a>.</p>
+</div>
+  </section>
+
+<section class="section soft">
     <div class="container">
       <h2>PDF split — frequently asked questions</h2>
       <div class="faq">
@@ -138,6 +156,14 @@ gtag('config', 'G-FP1WDZ3MRQ');
         <details>
           <summary>My PDF will not load. Why?</summary>
           <p>Password-protected (encrypted) PDFs cannot be opened in the browser. Remove the protection in the application that created the file first, if you are entitled to. Damaged files may also fail to load.</p>
+        </details>
+        <details>
+          <summary>Can I split a PDF into individual pages?</summary>
+          <p>Yes. Extract one page at a time — for example, pages 1, 2 and 3 as three separate runs — and each becomes its own PDF. For a long document, work through the pages in batches.</p>
+        </details>
+        <details>
+          <summary>Will the extracted pages keep their links and bookmarks?</summary>
+          <p>The text, images and layout of the pages are preserved exactly. Interactive extras such as bookmarks and clickable links are not guaranteed to carry over, so check the result before you send it on.</p>
         </details>
       </div>
     </div>

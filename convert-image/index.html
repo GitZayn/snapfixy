@@ -23,7 +23,7 @@
 {"@context":"https://schema.org","@type":"WebApplication","name":"SnapFixy Image Converter","url":"https://snapfixy.com/convert-image/","applicationCategory":"MultimediaApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What happens to transparency when I convert to JPG?", "acceptedAnswer": {"@type": "Answer", "text": "JPG cannot store transparency, so transparent areas are placed on a white background. If you need to keep transparency, convert to PNG or WebP instead."}}, {"@type": "Question", "name": "Can I convert a WebP image back to JPG?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — that is one of the most common reasons people use this tool. Drop the WebP file in, choose JPG, and download."}}, {"@type": "Question", "name": "Does converting reduce the quality?", "acceptedAnswer": {"@type": "Answer", "text": "Converting to PNG is lossless. Converting to JPG or WebP re-encodes the image, so keep the quality slider high (90%+) if the result needs to look identical. Nothing is uploaded at any point."}}, {"@type": "Question", "name": "Can it convert animated GIFs?", "acceptedAnswer": {"@type": "Answer", "text": "The converter reads the first frame of an animated GIF and saves it as a still image in your chosen format. If you need the animation preserved, keep the original GIF."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What happens to transparency when I convert to JPG?", "acceptedAnswer": {"@type": "Answer", "text": "JPG cannot store transparency, so transparent areas are placed on a white background. If you need to keep transparency, convert to PNG or WebP instead."}}, {"@type": "Question", "name": "Can I convert a WebP image back to JPG?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — that is one of the most common reasons people use this tool. Drop the WebP file in, choose JPG, and download."}}, {"@type": "Question", "name": "Does converting reduce the quality?", "acceptedAnswer": {"@type": "Answer", "text": "Converting to PNG is lossless. Converting to JPG or WebP re-encodes the image, so keep the quality slider high (90%+) if the result needs to look identical. Nothing is uploaded at any point."}}, {"@type": "Question", "name": "Can it convert animated GIFs?", "acceptedAnswer": {"@type": "Answer", "text": "The converter reads the first frame of an animated GIF and saves it as a still image in your chosen format. If you need the animation preserved, keep the original GIF."}}, {"@type": "Question", "name": "Will converting a JPG to PNG make it sharper?", "acceptedAnswer": {"@type": "Answer", "text": "No. Converting cannot add detail that was never there. A JPG turned into a PNG keeps exactly the quality the JPG had — and the file usually gets bigger, because PNG is lossless."}}, {"@type": "Question", "name": "What is the best format for a logo with a transparent background?", "acceptedAnswer": {"@type": "Answer", "text": "PNG. It keeps every pixel exactly and supports transparency. WebP also works in most modern browsers and apps, but PNG is still the safest choice when the file will be opened in older software."}}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://snapfixy.com/"},{"@type":"ListItem","position":2,"name":"Image Converter","item":"https://snapfixy.com/convert-image/"}]}
@@ -140,7 +140,25 @@ gtag('config', 'G-FP1WDZ3MRQ');
     </div>
   </section>
 
-  <section class="section soft">
+  
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>How to convert an image, step by step</h2>
+      <p>Your files are never uploaded. The whole job runs in your browser, and even a large image converts in a moment.</p>
+      <ol>
+        <li><strong>Drop your image in</strong> or click to browse. PNG, JPG, WebP, GIF, BMP and most other formats your browser can open will work.</li>
+        <li><strong>Pick the format you need.</strong> PNG for lossless quality and transparency, JPG for the smallest photographs, WebP for the modern web.</li>
+        <li><strong>Set the quality for JPG or WebP.</strong> The default of 92% keeps photos looking crisp; lower it only if file size matters more than fine detail.</li>
+        <li><strong>Convert and compare.</strong> Check the result against the original, then download it in its new format.</li>
+      </ol>
+      <h2>Converting for common destinations</h2>
+      <p>Most conversions happen because a destination demands a particular format, and the right choice depends on where the image is going. For a website, WebP is usually the best pick: it is smaller than JPG at the same quality and supports transparency, and nearly every current browser accepts it. For email attachments and upload forms, JPG is the safest bet — it is small and universally accepted, though it cannot hold transparency. For design tools, print and anything with a transparent background, PNG is the one to use: it preserves every pixel exactly, and older software opens it without complaint. And for social media, JPG is the usual choice for photos, since platforms re-encode uploads anyway.</p>
+      <p>One rule covers all of them: convert for a reason, not out of habit. Switching formats does not improve an image — a JPG converted to PNG keeps exactly the quality the JPG had, and the file usually gets bigger. Convert when a form, a website or an app asks for a specific format, and reach for the <a href="/compress-image/">image compressor</a> when file size is the real problem. And keep the quality slider high when the result needs to look identical: 90% or above for JPG and WebP, and PNG whenever nothing may be lost at all.</p>
+          <p>Not sure which format to pick? Our guide to <a href="/blog/convert-images-jpg-png-webp/">converting images between JPG, PNG and WebP</a> covers the choices, and <a href="/blog/png-vs-jpg-vs-webp/">PNG vs JPG vs WebP</a> compares them side by side.</p>
+</div>
+  </section>
+
+<section class="section soft">
     <div class="container">
       <h2>Image converter — frequently asked questions</h2>
       <div class="faq">
@@ -159,6 +177,14 @@ gtag('config', 'G-FP1WDZ3MRQ');
         <details>
           <summary>Can it convert animated GIFs?</summary>
           <p>The converter reads the first frame of an animated GIF and saves it as a still image in your chosen format. If you need the animation preserved, keep the original GIF.</p>
+        </details>
+        <details>
+          <summary>Will converting a JPG to PNG make it sharper?</summary>
+          <p>No. Converting cannot add detail that was never there. A JPG turned into a PNG keeps exactly the quality the JPG had — and the file usually gets bigger, because PNG is lossless.</p>
+        </details>
+        <details>
+          <summary>What is the best format for a logo with a transparent background?</summary>
+          <p>PNG. It keeps every pixel exactly and supports transparency. WebP also works in most modern browsers and apps, but PNG is still the safest choice when the file will be opened in older software.</p>
         </details>
       </div>
     </div>

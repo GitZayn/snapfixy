@@ -23,7 +23,7 @@
 {"@context":"https://schema.org","@type":"WebApplication","name":"SnapFixy PDF Merge","url":"https://snapfixy.com/merge-pdf/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are my PDFs uploaded to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your browser does the merging locally. That is the whole point of SnapFixy — documents like contracts and bank statements should not need to travel the internet just to be joined together."}}, {"@type": "Question", "name": "Can I merge more than two PDFs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, add as many as you like. The practical limit is your device's memory — dozens of ordinary documents are fine; hundreds of pages of high-resolution scans may be slow on an older phone."}}, {"@type": "Question", "name": "Will the merged PDF look the same as the originals?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pages are copied exactly, including their size and orientation. One exception: interactive form fields and some digital signatures can be flattened or invalidated by any merging process, ours included — check important documents after merging."}}, {"@type": "Question", "name": "What if a PDF is password-protected?", "acceptedAnswer": {"@type": "Answer", "text": "Encrypted PDFs cannot be opened by the browser library, so they cannot be merged here. Remove the password with the software that created the file first, if you are entitled to do so."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are my PDFs uploaded to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your browser does the merging locally. That is the whole point of SnapFixy — documents like contracts and bank statements should not need to travel the internet just to be joined together."}}, {"@type": "Question", "name": "Can I merge more than two PDFs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, add as many as you like. The practical limit is your device's memory — dozens of ordinary documents are fine; hundreds of pages of high-resolution scans may be slow on an older phone."}}, {"@type": "Question", "name": "Will the merged PDF look the same as the originals?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pages are copied exactly, including their size and orientation. One exception: interactive form fields and some digital signatures can be flattened or invalidated by any merging process, ours included — check important documents after merging."}}, {"@type": "Question", "name": "What if a PDF is password-protected?", "acceptedAnswer": {"@type": "Answer", "text": "Encrypted PDFs cannot be opened by the browser library, so they cannot be merged here. Remove the password with the software that created the file first, if you are entitled to do so."}}, {"@type": "Question", "name": "Is there a limit on how many PDFs I can merge?", "acceptedAnswer": {"@type": "Answer", "text": "No fixed limit. The practical limit is your device's memory — dozens of ordinary documents merge happily. Very large scans can be slow on an older phone, so merge in smaller batches if that happens."}}, {"@type": "Question", "name": "Can I change the order after adding files?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Remove a file from the list and add it again — it goes to the end. Add your files in the order you want them, or reorder this way before you press merge."}}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://snapfixy.com/"},{"@type":"ListItem","position":2,"name":"PDF Merge","item":"https://snapfixy.com/merge-pdf/"}]}
@@ -118,7 +118,25 @@ gtag('config', 'G-FP1WDZ3MRQ');
     </div>
   </section>
 
-  <section class="section soft">
+  
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>How to merge PDFs, step by step</h2>
+      <p>Your files are never uploaded. The whole job runs in your browser, so contracts and statements never leave your device.</p>
+      <ol>
+        <li><strong>Add your PDFs.</strong> Drop several files at once or add them one by one — the list is the order they will merge in.</li>
+        <li><strong>Check the order.</strong> Files appear in the order you added them. To move one to the end, remove it from the list and add it again.</li>
+        <li><strong>Merge.</strong> Your browser copies every page into one new document, preserving each page's size, orientation and content.</li>
+        <li><strong>Download the merged PDF</strong> and check it page by page — especially any pages that carried form fields or signatures, which merging can flatten.</li>
+      </ol>
+      <h2>Tips for a tidy merged document</h2>
+      <p>A merged PDF is only as tidy as what goes into it, so a minute of preparation saves a messy result. Pull out unneeded pages first with the <a href="/split-pdf/">PDF split</a> tool rather than merging whole documents and regretting the extra pages later. Keep an eye on page sizes: documents of different sizes merge happily, but the result can look uneven if one file is A4 and another is a scanned letter page. And always keep your originals — merging creates a new file and never changes the ones you started with, so there is no risk in trying again if the order comes out wrong.</p>
+      <p>It helps to know what merging does not do. It does not reformat or re-type anything: pages are copied exactly as they are, so a crooked scan stays crooked and a document in the wrong order stays in the wrong order until you fix the order yourself. It does not read text out of scanned images either — a scan merged into a PDF is still a picture of a page. If a document needs real editing, do that in the application that created it first, then merge the finished files here.</p>
+          <p>For the step-by-step version, see <a href="/blog/merge-pdf-files-free-browser/">how to merge PDF files for free in your browser</a>.</p>
+</div>
+  </section>
+
+<section class="section soft">
     <div class="container">
       <h2>PDF merge — frequently asked questions</h2>
       <div class="faq">
@@ -137,6 +155,14 @@ gtag('config', 'G-FP1WDZ3MRQ');
         <details>
           <summary>What if a PDF is password-protected?</summary>
           <p>Encrypted PDFs cannot be opened by the browser library, so they cannot be merged here. Remove the password with the software that created the file first, if you are entitled to do so.</p>
+        </details>
+        <details>
+          <summary>Is there a limit on how many PDFs I can merge?</summary>
+          <p>No fixed limit. The practical limit is your device's memory — dozens of ordinary documents merge happily. Very large scans can be slow on an older phone, so merge in smaller batches if that happens.</p>
+        </details>
+        <details>
+          <summary>Can I change the order after adding files?</summary>
+          <p>Yes. Remove a file from the list and add it again — it goes to the end. Add your files in the order you want them, or reorder this way before you press merge.</p>
         </details>
       </div>
     </div>

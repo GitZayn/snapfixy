@@ -23,7 +23,7 @@
 {"@context":"https://schema.org","@type":"WebApplication","name":"SnapFixy PDF Compressor","url":"https://snapfixy.com/compress-pdf/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much smaller will my PDF get?", "acceptedAnswer": {"@type": "Answer", "text": "It depends entirely on how the file was made. Structurally bloated PDFs often shrink by 5–30%. PDFs dominated by large images may barely change, and the tool will show you the true figures before you download anything."}}, {"@type": "Question", "name": "Will the quality of my document change?", "acceptedAnswer": {"@type": "Answer", "text": "No. The pages, text and images are preserved exactly; only the internal packaging of the file is made more efficient. Nothing is downscaled or re-encoded."}}, {"@type": "Question", "name": "Why do other sites promise 90% reductions?", "acceptedAnswer": {"@type": "Answer", "text": "Those services usually downscale the images inside your PDF on their servers, which changes quality — and requires you to upload the document. We chose the private route: honest structural optimisation on your own device."}}, {"@type": "Question", "name": "Is my PDF uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "Never. The optimisation runs in your browser using a PDF library loaded into the page."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much smaller will my PDF get?", "acceptedAnswer": {"@type": "Answer", "text": "It depends entirely on how the file was made. Structurally bloated PDFs often shrink by a useful amount. PDFs dominated by large images may barely change, and the tool will show you the true figures before you download anything."}}, {"@type": "Question", "name": "Will the quality of my document change?", "acceptedAnswer": {"@type": "Answer", "text": "No. The pages, text and images are preserved exactly; only the internal packaging of the file is made more efficient. Nothing is downscaled or re-encoded."}}, {"@type": "Question", "name": "Why do other sites promise 90% reductions?", "acceptedAnswer": {"@type": "Answer", "text": "Those services usually downscale the images inside your PDF on their servers, which changes quality — and requires you to upload the document. We chose the private route: honest structural optimisation on your own device."}}, {"@type": "Question", "name": "Is my PDF uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "Never. The optimisation runs in your browser using a PDF library loaded into the page."}}, {"@type": "Question", "name": "Is it safe to compress a PDF with signatures or form fields?", "acceptedAnswer": {"@type": "Answer", "text": "The pages, text and images are preserved exactly, but as with any tool that re-saves a PDF, interactive form fields and digital signatures can behave differently afterwards. Check important documents before you send them on."}}, {"@type": "Question", "name": "Why is my scanned PDF still large after compressing?", "acceptedAnswer": {"@type": "Answer", "text": "Scanned pages are really photographs, and this tool does not downscale images — it only tidies the file's internal structure. A scan-heavy PDF needs a different approach: extract only the pages you need, or re-scan at a lower resolution."}}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://snapfixy.com/"},{"@type":"ListItem","position":2,"name":"PDF Compressor","item":"https://snapfixy.com/compress-pdf/"}]}
@@ -99,7 +99,7 @@ gtag('config', 'G-FP1WDZ3MRQ');
   <section class="section">
     <div class="container content-narrow">
       <h2>What this tool does — honestly</h2>
-      <p>Many PDFs carry more weight than they need: uncompressed internal structure, duplicated objects and leftover data from the software that wrote them. This tool loads your PDF in the browser and re-saves it using compressed object streams, which packs the document's structure far more efficiently. For PDFs written by older scanners and office suites, that alone can trim a noticeable amount — sometimes 5–30%.</p>
+      <p>Many PDFs carry more weight than they need: uncompressed internal structure, duplicated objects and leftover data from the software that wrote them. This tool loads your PDF in the browser and re-saves it using compressed object streams, which packs the document's structure far more efficiently. For PDFs written by older scanners and office suites, that alone can trim a noticeable amount.</p>
       <p>Here is what it does <em>not</em> do, because we would rather be straight with you: it does not shrink the images inside your PDF. If your file is large because it contains high-resolution scans or photos, re-saving the structure will only help a little, and no honest in-browser tool can rebuild those images at a lower resolution without changing how the pages look. For a dramatically smaller file in that case, the practical routes are to <a href="/split-pdf/">extract only the pages you need</a>, or to re-create the PDF from smaller source images using our <a href="/compress-image/">image compressor</a>.</p>
       <h3>When this tool helps most</h3>
       <ul>
@@ -111,13 +111,31 @@ gtag('config', 'G-FP1WDZ3MRQ');
     </div>
   </section>
 
-  <section class="section soft">
+  
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>How to compress a PDF, step by step</h2>
+      <p>Your files are never uploaded. The whole job runs in your browser, so even sensitive documents stay on your device.</p>
+      <ol>
+        <li><strong>Drop your PDF in</strong> or click to browse. Scanned documents and files from older office software usually benefit most.</li>
+        <li><strong>Let the tool re-save it.</strong> Your browser rebuilds the document with compressed object streams, packing its internal structure more efficiently.</li>
+        <li><strong>Check the before and after sizes.</strong> The tool shows you exactly what was saved before you download anything.</li>
+        <li><strong>Download the optimised PDF</strong> — and keep your original if the saving is not worth it. Nothing is changed unless you download the result.</li>
+      </ol>
+      <h2>What to do when the file is still too big</h2>
+      <p>Sometimes the honest answer is that structural optimisation is not enough, and that is usually because the file is large for a different reason: it is full of high-resolution scans or photographs. This tool does not shrink the images inside a PDF, because doing so would change how the pages look, and we would rather tell you that plainly than quietly degrade your document.</p>
+      <p>In that case, the practical fixes are to send less, or to rebuild smaller. Use the <a href="/split-pdf/">PDF split</a> tool to extract only the pages the recipient actually needs — a ten-page extract of a sixty-page report is far smaller to send, and it avoids sharing pages that were never meant to leave your desk. Or, if you still have the source material, re-create the PDF from smaller images: run the photos through the <a href="/compress-image/">image compressor</a> first, then build the document again. And before you send anything, check the size your email provider allows — most inboxes cap attachments at around 10–25 MB, so a file just over the limit often needs only a small trim, which is exactly what this tool is for.</p>
+          <p>Our guide to <a href="/blog/compress-pdf-to-email/">compressing a PDF so you can email it</a> walks through the same steps with real examples, including what to do when the file still will not fit.</p>
+</div>
+  </section>
+
+<section class="section soft">
     <div class="container">
       <h2>PDF compressor — frequently asked questions</h2>
       <div class="faq">
         <details>
           <summary>How much smaller will my PDF get?</summary>
-          <p>It depends entirely on how the file was made. Structurally bloated PDFs often shrink by 5–30%. PDFs dominated by large images may barely change, and the tool will show you the true figures before you download anything.</p>
+          <p>It depends entirely on how the file was made. Structurally bloated PDFs often shrink by a useful amount. PDFs dominated by large images may barely change, and the tool will show you the true figures before you download anything.</p>
         </details>
         <details>
           <summary>Will the quality of my document change?</summary>
@@ -130,6 +148,14 @@ gtag('config', 'G-FP1WDZ3MRQ');
         <details>
           <summary>Is my PDF uploaded?</summary>
           <p>Never. The optimisation runs in your browser using a PDF library loaded into the page.</p>
+        </details>
+        <details>
+          <summary>Is it safe to compress a PDF with signatures or form fields?</summary>
+          <p>The pages, text and images are preserved exactly, but as with any tool that re-saves a PDF, interactive form fields and digital signatures can behave differently afterwards. Check important documents before you send them on.</p>
+        </details>
+        <details>
+          <summary>Why is my scanned PDF still large after compressing?</summary>
+          <p>Scanned pages are really photographs, and this tool does not downscale images — it only tidies the file's internal structure. A scan-heavy PDF needs a different approach: extract only the pages you need, or re-scan at a lower resolution.</p>
         </details>
       </div>
     </div>

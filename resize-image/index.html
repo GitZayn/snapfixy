@@ -23,7 +23,7 @@
 {"@context":"https://schema.org","@type":"WebApplication","name":"SnapFixy Image Resizer","url":"https://snapfixy.com/resize-image/","applicationCategory":"MultimediaApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will resizing reduce the file size too?", "acceptedAnswer": {"@type": "Answer", "text": "Almost always, yes — fewer pixels means less data. If the file is still too large for your purpose afterwards, run it through the image compressor."}}, {"@type": "Question", "name": "What format does the resized image come in?", "acceptedAnswer": {"@type": "Answer", "text": "The same format as your original where the browser supports it (PNG stays PNG, JPG stays JPG). Transparent images keep their transparency when saved as PNG."}}, {"@type": "Question", "name": "Why does my enlarged image look blurry?", "acceptedAnswer": {"@type": "Answer", "text": "Enlarging spreads the existing pixels over a bigger area; no tool can create detail that the original photo never captured. Start from the biggest original available."}}, {"@type": "Question", "name": "Is anything uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Like every SnapFixy tool, resizing happens entirely in your browser."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will resizing reduce the file size too?", "acceptedAnswer": {"@type": "Answer", "text": "Almost always, yes — fewer pixels means less data. If the file is still too large for your purpose afterwards, run it through the image compressor."}}, {"@type": "Question", "name": "What format does the resized image come in?", "acceptedAnswer": {"@type": "Answer", "text": "The same format as your original where the browser supports it (PNG stays PNG, JPG stays JPG). Transparent images keep their transparency when saved as PNG."}}, {"@type": "Question", "name": "Why does my enlarged image look blurry?", "acceptedAnswer": {"@type": "Answer", "text": "Enlarging spreads the existing pixels over a bigger area; no tool can create detail that the original photo never captured. Start from the biggest original available."}}, {"@type": "Question", "name": "Is anything uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Like every SnapFixy tool, resizing happens entirely in your browser."}}, {"@type": "Question", "name": "What size should a profile picture be?", "acceptedAnswer": {"@type": "Answer", "text": "Most platforms display profile pictures small — 400 to 800 pixels wide is plenty. Uploading a 4,000-pixel photo as a profile picture only wastes bandwidth; the platform shrinks it anyway."}}, {"@type": "Question", "name": "Can I resize to an exact width and height?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Unlock the proportions and type both numbers. The image will stretch to fit the exact box, so only do this when the destination demands it — for everything else, keep proportions locked."}}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://snapfixy.com/"},{"@type":"ListItem","position":2,"name":"Image Resizer","item":"https://snapfixy.com/resize-image/"}]}
@@ -155,7 +155,25 @@ gtag('config', 'G-FP1WDZ3MRQ');
     </div>
   </section>
 
-  <section class="section soft">
+  
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>How to resize an image, step by step</h2>
+      <p>Your files are never uploaded. The whole job runs in your browser, and you can repeat it as often as you like.</p>
+      <ol>
+        <li><strong>Drop your image in</strong> or click to browse.</li>
+        <li><strong>Type the new width.</strong> With proportions locked — the default — the height adjusts automatically, so nothing is squashed or stretched.</li>
+        <li><strong>Or pick a preset.</strong> Full HD, HD, social square and web content sizes are one click away.</li>
+        <li><strong>Resize and compare.</strong> Check the result against the original, then download it.</li>
+      </ol>
+      <h2>Resizing without losing quality</h2>
+      <p>Resizing down is one of the safest edits you can make to an image, because you are removing pixels rather than inventing them — but two habits decide whether the result looks good. The first is to start from the largest original you have: shrinking a 4,000-pixel photo to 800 pixels keeps it sharp, while enlarging a small image to the same size only spreads its pixels thinner. The second is to keep proportions locked unless a destination truly demands an exact box; unlocking them stretches the image, and stretched faces and logos are easy to spot.</p>
+      <p>For the smallest file as well as the right size, resize first and compress second. A photo resized to the dimensions its destination actually displays, then run through the <a href="/compress-image/">image compressor</a>, is usually a fraction of the size of the original — and looks identical where it will be seen. And when a form or platform gives you a maximum dimension rather than an exact one, resize to that maximum: going smaller than the limit only throws away sharpness you could have kept.</p>
+          <p>Our guide to <a href="/blog/resize-image-online-without-software/">resizing an image online without software</a> covers the common sizes for social media, websites and forms.</p>
+</div>
+  </section>
+
+<section class="section soft">
     <div class="container">
       <h2>Image resizer — frequently asked questions</h2>
       <div class="faq">
@@ -174,6 +192,14 @@ gtag('config', 'G-FP1WDZ3MRQ');
         <details>
           <summary>Is anything uploaded?</summary>
           <p>No. Like every SnapFixy tool, resizing happens entirely in your browser.</p>
+        </details>
+        <details>
+          <summary>What size should a profile picture be?</summary>
+          <p>Most platforms display profile pictures small — 400 to 800 pixels wide is plenty. Uploading a 4,000-pixel photo as a profile picture only wastes bandwidth; the platform shrinks it anyway.</p>
+        </details>
+        <details>
+          <summary>Can I resize to an exact width and height?</summary>
+          <p>Yes. Unlock the proportions and type both numbers. The image will stretch to fit the exact box, so only do this when the destination demands it — for everything else, keep proportions locked.</p>
         </details>
       </div>
     </div>
